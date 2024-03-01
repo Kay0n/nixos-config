@@ -15,7 +15,6 @@
  
   networking.networkmanager.enable = true;
 
-  
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -29,8 +28,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.gnome.core-utilities.enable = false;
-
-  
 
   services.printing.enable = true;
 
@@ -47,35 +44,24 @@
 
   };
 
-  
+
 
   programs.zsh.enable = true;
 
-
-  environment.pathsToLink = [ "/share/zsh" ];
+  # environment.pathsToLink = [ "/share/zsh" ];
  
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    home-manager
-    gnome.file-roller
     firefox
-    wget
+    gnome.file-roller
     gnome.nautilus
     kgx
     gnome-text-editor
     gnome.gnome-system-monitor
-    home-manager
     winetricks
     vlc
-    git
-    python3
-    tmux
-    temurin-jre-bin-17
-    zsh
   ];
-
-
 
 
 
@@ -107,5 +93,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  system.stateVersion = "23.11"; 
 
 }

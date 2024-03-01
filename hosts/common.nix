@@ -18,6 +18,16 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "23.11"; 
+
+
+  environment.systemPackages = with pkgs; [
+    home-manager
+    wget
+    git
+    python3
+    tmux
+    temurin-jre-bin-17
+    zsh
+  ];
   
 }
