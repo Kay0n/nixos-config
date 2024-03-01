@@ -14,6 +14,8 @@
   };
 
 
+
+
   # output, defines how system will use flake
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
@@ -25,8 +27,10 @@
         system = "x86_64-linux";
 
         modules = [
-          ./hosts/laptop
+
           ./hosts/common
+          ./hosts/jdy-laptop
+
 
           home-manager.nixosModules.home-manager
           {
