@@ -1,92 +1,69 @@
 {
-  description = "Kayon's nixos config";
+  description = "Kayon's NixOS Config";
 
   # input flakes that this flake will use
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";  # stable - github:nixos/nixpkgs/nixos-23.11
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
     
     home-manager = {
-      url = "github:nix-community/home-manager";          # stable - github:nix-community/home-manager/release-23.11
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
 
 
+  outputs = {nixpkgs, home-manager, ... }@inputs: let
 
-
-  # output, defines how system will use flake
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations = {
-
-
-      jdy-laptop = nixpkgs.lib.nixosSystem {
-
-        # extraSpecialArgs = {inherit inputs;};
+    # more readable system definition (at least to me)
+    systems = [
+      {
+        hostname = "jdy-laptop";
         system = "x86_64-linux";
-
+        users = [{
+          name = "kayon";
+          home-manager-imports = [ 
+            ./users/kayon/main.nix
+            ./users/kayon/display.nix
+          ];
+        }];
         modules = [
-
-          ./hosts/common
+          ./hosts/common.nix
           ./hosts/jdy-laptop
-
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.kayon.imports = [
-              ./home/home.nix 
-            ];
-          }
+          ./users/kayon/load.nix
         ];
-      };
+      }
 
-
-      # mv-church = nixpkgs.lib.nixosSystem {
-
-      #   extraSpecialArgs = {inherit inputs;};
-      #   system = "x86_64-linux";
-
-      #   modules = [
-      #     # ./hosts/laptop
-      #     inputs.home-manager.nixosModules
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users = {
-      #         kayon.imports = [./home.nix ];
-      #       };
-      #     }
-      #   ];
-      # };
-
-
-      # oracle-main = nixpkgs.lib.nixosSystem {
-
-      #   extraSpecialArgs = {inherit inputs;};
-      #   system = "aarch64-linux";
-
-      #   modules = [
-      #     # ./hosts/laptop
-      #     inputs.home-manager.nixosModules
-      #     home-manager.nixosModules.home-manager
-      #     {
-      #       home-manager.useGlobalPkgs = true;
-      #       home-manager.useUserPackages = true;
-      #       home-manager.users = {
-      #         kayon.imports = [./home.nix ];
-      #       };
-      #     }
-      #   ];
-      # };
+      {
+        hostname = "oracle-main";
+        system = "aarch64_linux";
+        users = [{
+          name = "kayon";
+          home-manager-imports = [ ./users/kayon/main.nix ];
+        }];
+        modules = [
+          ./hosts/common.nix
+          ./hosts/oracle-main
+          ./users/kayon.nix
+        ];
+      }
+    ];
 
 
 
-    };
+
+  # build systems derevation
+  in {
+    nixosConfigurations = (import ./system-builder.nix { 
+      inherit nixpkgs home-manager; 
+      systems=systems; 
+    }).nixosConfigurations;
   };
+
+
+
+
+
 }
-
-
+    
