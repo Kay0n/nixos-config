@@ -37,7 +37,7 @@
 
       {
         hostname = "oracle-main";
-        system = "aarch64_linux";
+        system = "aarch64-linux";
         users = [{
           name = "kayon";
           home-manager-imports = [ ./users/kayon/main.nix ];

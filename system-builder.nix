@@ -64,8 +64,9 @@ let
 in
 {
   # loops through list and generates a set of nixosConfigurations
-  nixosConfigurations = lib.genAttrs (map (sys: sys.hostname) systems) (system:
-    nixpkgs.lib.nixosSystem (mkNixosConfiguration (lib.findFirst (s: s.hostname == system) null systems))
+  nixosConfigurations = lib.genAttrs 
+    (map (sys: sys.hostname) systems) 
+    (system: nixpkgs.lib.nixosSystem (mkNixosConfiguration (lib.findFirst (s: s.hostname == system) null systems))
   );
 }
 
