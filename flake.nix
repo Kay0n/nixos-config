@@ -48,6 +48,21 @@
           ./users/kayon.nix
         ];
       }
+      {
+        hostname = "mv-church";
+        system = "x86_64-linux";
+        users = [{
+          name = "kayon";
+          home-manager-imports = [ 
+            ./users/kayon/main.nix
+          ];
+        }];
+        modules = [
+          ./hosts/common.nix
+          ./hosts/mv-church
+          ./users/kayon/load.nix
+        ];
+      }
     ];
 
 

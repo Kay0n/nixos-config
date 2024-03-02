@@ -29,5 +29,8 @@
     temurin-jre-bin-17
     zsh
   ];
+
+  programs.zsh.enable = true;
+  nixpkgs.config.allowUnfree = true;
   
 }
