@@ -11,7 +11,7 @@
   
   programs.home-manager.enable = true;
 
-  home.package = with pkgs; [
+  home.packages = with pkgs; [
     zoxide
     neofetch
   ];
