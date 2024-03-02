@@ -18,10 +18,6 @@
   };
 
   home.packages = with pkgs; [
-    zoxide
-    neofetch
-    unzip
-
     discord
     vscode
     steam
@@ -78,8 +74,5 @@
       name = "VSCode";
     };
   };
-
-  
-
 
 }

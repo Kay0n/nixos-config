@@ -9,16 +9,18 @@
   # home-manager version, do not touch
   home.stateVersion = "23.11"; 
   
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.package = with pkgs; [
+    zoxide
+    neofetch
+  ];
 
   programs.git = {
     enable = true;
     userName = "Kay0n";
     userEmail = "kayon5555@gmail.com";
   };
-
 
   programs.zsh = {  
     
@@ -49,7 +51,6 @@
       theme = "intheloop";
     };
   };
-
 
   programs.tmux = {
     enable = true;

@@ -6,15 +6,8 @@
 
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  
-  
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "jdy-laptop"; 
- 
-  networking.networkmanager.enable = true;
-
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -44,11 +37,7 @@
 
   };
 
-
-
   programs.zsh.enable = true;
-
-  # environment.pathsToLink = [ "/share/zsh" ];
  
   nixpkgs.config.allowUnfree = true;
 
@@ -62,8 +51,6 @@
     winetricks
     vlc
   ];
-
-
 
   # Enable OpenGL
   hardware.opengl = {

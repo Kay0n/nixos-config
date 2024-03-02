@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 {
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   time.timeZone = "Australia/Adelaide";
 
   i18n.defaultLocale = "en_AU.UTF-8";
@@ -16,10 +22,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-
-
   environment.systemPackages = with pkgs; [
     home-manager
     wget
@@ -28,9 +30,13 @@
     tmux
     temurin-jre-bin-17
     zsh
+    unzip
   ];
 
   programs.zsh.enable = true;
+
   nixpkgs.config.allowUnfree = true;
+
+  networking.networkmanager.enable = true;
   
 }

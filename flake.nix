@@ -1,7 +1,7 @@
 {
   description = "Kayon's NixOS Config";
 
-  # input flakes that this flake will use
+  # define input flakes that this flake will use
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
@@ -16,7 +16,7 @@
 
   outputs = {nixpkgs, home-manager, ... }@inputs: let
 
-    # more readable system definition (at least to me)
+    # more readable system definition
     systems = [
       {
         hostname = "jdy-laptop";
