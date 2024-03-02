@@ -17,6 +17,7 @@
     description = "Kayon";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
+    initialPassword = "password";
   };
 
   users.users.kayon.openssh.authorizedKeys.keys = [
