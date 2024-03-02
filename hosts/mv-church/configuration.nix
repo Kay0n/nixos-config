@@ -13,6 +13,14 @@
 
   networking.hostName = "mv-church"; 
 
+  programs.zsh.enable = true;
+
+  # environment.pathsToLink = [ "/share/zsh" ];
+ 
+  nixpkgs.config.allowUnfree = true;
+
+  
+
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
