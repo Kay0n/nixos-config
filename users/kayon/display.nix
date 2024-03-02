@@ -37,6 +37,10 @@
       color-scheme = "prefer-dark";
     };
 
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = ["<Shift><Super>s"];
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       toggle-fullscreen = [ "<Super>r" ];
       close = [ "<Super>q" ];
