@@ -15,11 +15,14 @@
 
   programs.zsh.enable = true;
 
+  networking.networkmanager.enable = true;
+
+
   # environment.pathsToLink = [ "/share/zsh" ];
  
   nixpkgs.config.allowUnfree = true;
 
-  
+
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
