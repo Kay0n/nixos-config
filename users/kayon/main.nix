@@ -14,6 +14,7 @@
   home.packages = with pkgs; [
     zoxide
     neofetch
+    xclip
   ];
 
   programs.git = {
@@ -41,6 +42,7 @@
       py = "python";
       cd = "z";
       nixrb = "sudo nixos-rebuild switch";
+      clip = "xclip -r -selection clipboard";
     };  
 
     enableAutosuggestions = true;

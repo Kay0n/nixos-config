@@ -28,7 +28,6 @@
     lutris
     wineWowPackages.stable
     nil
-  
   ];
 
   dconf.settings = { 
