@@ -11,10 +11,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
 
-  outputs = {nixpkgs, home-manager, ... }@inputs: let
+  outputs = {nixpkgs, home-manager, sops-nix, ... }@inputs: let
 
     # more readable system definition
     systems = [
@@ -29,6 +34,7 @@
           ];
         }];
         modules = [
+          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/jdy-laptop
           ./users/kayon/load.nix
@@ -43,6 +49,7 @@
           home-manager-imports = [ ./users/kayon/main.nix ];
         }];
         modules = [
+          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/oracle-main
           ./users/kayon.nix
@@ -58,6 +65,7 @@
           ];
         }];
         modules = [
+          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/mv-church
           ./users/kayon/load.nix

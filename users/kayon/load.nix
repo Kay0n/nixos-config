@@ -31,5 +31,13 @@
   # enable zsh.enableAutosuggestions to work on non-home-manager installed pkgs
   environment.pathsToLink = [ "/share/zsh" ];  
 
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    age.keyFile = "/home/kayon/.config/sops/age/keys.txt";
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    secrets.cloudflare-token = {};
+  };
+
+
 
 }
