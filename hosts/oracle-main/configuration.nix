@@ -1,24 +1,34 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "oracle-main"; 
-
+  networking.hostName = "oracle-main";
+ 
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  services.ddclient = {
+    enable = true;
+    protocol = "cloudflare";
+    zone = "refract.online";
+    use = "web";
+    passwordFile = "/run/secrets/cloudflare-token";
+    interval = "5min";
+    domains = [
+      "refract.online"
+      "alt.refract.online"
+      "mini.refract.online"
+    ];
+    extraConfig = ''
+      web='https://cloudflare.com/cdn-cgi/trace'
+      web-skip='ip='
+    '';
+  };
 
-  
-  
-  system.stateVersion = "24.05";
+
+  networking.firewall.allowedTCPPorts = [ 50000 50001 50002 50005 22 ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.enable = false;
+
+  system.stateVersion = "23.11"; 
 
 }
-

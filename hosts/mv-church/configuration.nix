@@ -14,9 +14,6 @@
     passwordFile = "/run/secrets/cloudflare-token";
     interval = "5min";
     domains = [
-      "refract.online"
-      "alt.refract.online"
-      "mini.refract.online"
       "mv.refract.online"
     ];
     extraConfig = ''

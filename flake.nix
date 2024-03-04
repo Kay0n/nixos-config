@@ -50,7 +50,7 @@
         modules = [
           ./hosts/common.nix
           ./hosts/oracle-main
-          ./users/kayon.nix
+          ./users/kayon/load.nix
         ];
       }
       {
@@ -58,9 +58,7 @@
         system = "x86_64-linux";
         users = [{
           name = "kayon";
-          home-manager-imports = [ 
-            ./users/kayon/main.nix
-          ];
+          home-manager-imports = [ ./users/kayon/main.nix ];
         }];
         modules = [
           ./hosts/common.nix
