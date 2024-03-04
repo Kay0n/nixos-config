@@ -51,6 +51,7 @@
           ./hosts/common.nix
           ./hosts/oracle-main
           ./users/kayon/load.nix
+          ./users/share/load.nix
         ];
       }
       {
@@ -64,7 +65,7 @@
           ./hosts/common.nix
           ./hosts/mv-church
           ./users/kayon/load.nix
-        ];
+        ];  
       }
     ];
 
