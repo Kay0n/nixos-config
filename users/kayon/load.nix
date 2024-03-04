@@ -33,8 +33,7 @@
 
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
-    age.keyFile = "/home/kayon/.config/sops/age/keys.txt";
-    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" "/home/kayon/.ssh/id_ed25519" ];
     secrets = {
       cloudflare-token = {};
     };
