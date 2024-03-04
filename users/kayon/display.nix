@@ -11,6 +11,13 @@
     };
   };
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-vscode-remote.remote-ssh
+    ];
+  };
+
   qt = {
     enable = true;
     platformTheme = "gnome";
@@ -19,7 +26,6 @@
 
   home.packages = with pkgs; [
     discord
-    vscode
     steam
     calibre
     prismlauncher
