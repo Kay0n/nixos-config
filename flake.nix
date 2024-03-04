@@ -34,7 +34,6 @@
           ];
         }];
         modules = [
-          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/jdy-laptop
           ./users/kayon/load.nix
@@ -49,7 +48,6 @@
           home-manager-imports = [ ./users/kayon/main.nix ];
         }];
         modules = [
-          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/oracle-main
           ./users/kayon.nix
@@ -65,7 +63,6 @@
           ];
         }];
         modules = [
-          sops-nix.nixosModules.sops
           ./hosts/common.nix
           ./hosts/mv-church
           ./users/kayon/load.nix
@@ -79,7 +76,7 @@
   # build systems derevation
   in {
     nixosConfigurations = (import ./system-builder.nix { 
-      inherit nixpkgs home-manager; 
+      inherit nixpkgs home-manager inputs; 
       systems=systems; 
     }).nixosConfigurations;
   };

@@ -41,7 +41,7 @@
       ls = "ls -1 --color=auto";
       py = "python";
       cd = "z";
-      nixrb = "sudo nixos-rebuild switch";
+      nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config/";
       clip = "xclip -r -selection clipboard";
     };  
 

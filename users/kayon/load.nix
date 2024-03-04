@@ -10,9 +10,9 @@
     initialPassword = "password";
   };
 
-  # jdy-laptop id_rsa.pub
+  # jdy-laptop id_ed25519.pub
   users.users.kayon.openssh.authorizedKeys.keys = [
-    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChBt7qeIINoUS5KOZ1yXerPko6Gch8qR6XU8LIUxKbi5PwItAUzJ8HA1foZhCRvDutESO7tsqSn9OyFgRstuZmOVMGM6VGMmsPrfqVxF8YHojgnhfILWoQ6fT+t0jX+SHu3zxv1sVGrJJbykGa1Wemd9zRgEj55PkhoGlnMKyQmd6LBO1qRpW6ye0wX8ESFPlhN0UH/7GAo4SoiIz59rXlzQdEMYQH+LKMLJ97TBzf2M5eyIp8zYcWFCpO5c5E9cZm6W/iRBDe7b06Yx/5Qyda0obBqjdO64hGfl+km1dQJJi5fgxupcdg3uC2eNZIbDbDqrgf6tcwsIhuYeTbMdNTaiO+wfRLFspnFpsHMGsfSQD4wbf0sHmYR+EbA+VI/pD6rdk0JaKhc01fqTBDQP90GaxxMCTvFr3bIanLRx5S4WTWmRVMeIYUrYZhDidh05+KHiS9bHsaaWSXHbD6K1C1wk9E8QvLSi0a2Omt4FDgrfqJXDlPVPNj7m/B9JltpUs= kayon@pop-os"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2sHKCs0wHA8m5sDwaISRn7MzGgw4QnZtW1o9jyjfJi kayon@jdy-laptop"
   ];
 
   # user doesn't have to type password for sudo
@@ -29,8 +29,10 @@
   ]; 
 
   # enable zsh.enableAutosuggestions to work on non-home-manager installed pkgs
-  environment.pathsToLink = [ "/share/zsh" ];  
+  environment.pathsToLink = [ "/share/zsh" ];     
+  programs.zsh.enable = true;
 
+  # secrets management: path = /run/secrets/<secret>
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" "/home/kayon/.ssh/id_ed25519" ];

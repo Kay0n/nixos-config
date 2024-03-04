@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
+
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -29,11 +33,8 @@
     python3
     tmux
     temurin-jre-bin-17
-    zsh
     unzip
   ];
-
-  programs.zsh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

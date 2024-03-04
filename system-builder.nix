@@ -1,4 +1,4 @@
-{home-manager, nixpkgs, systems, ...}:
+{home-manager, nixpkgs, systems, inputs, ...}:
 let
   lib=nixpkgs.lib;
 
@@ -44,9 +44,9 @@ let
   # function to convert a single system definition to a NixOS configuration
   mkNixosConfiguration = { hostname, system, users, modules }: 
     {
-      inherit system;
-      modules = modules ++ 
-      [
+      system = system;
+      specialArgs = { inherit inputs; };
+      modules = modules ++ [
         home-manager.nixosModules.home-manager 
         {
           home-manager.useGlobalPkgs = true;
