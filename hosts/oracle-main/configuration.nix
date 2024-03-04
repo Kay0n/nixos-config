@@ -3,8 +3,11 @@
 {
 
   networking.hostName = "oracle-main";
- 
-  services.openssh.enable = true;
+
+  services.openssh = {
+    enable = true;
+    settings.GatewayPorts = "yes";
+  };
 
   services.ddclient = {
     enable = true;
@@ -25,7 +28,7 @@
   };
 
 
-  networking.firewall.allowedTCPPorts = [ 50000 50001 50002 50005 22 ];
+  networking.firewall.allowedTCPPorts = [ 50000 50001 50002 55551 55552 55553 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 
