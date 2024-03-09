@@ -7,7 +7,7 @@
   services.openssh.enable = true;
 
   services.ddclient = {
-    enable = true;
+    enable = false;
     protocol = "cloudflare";
     zone = "refract.online";
     use = "web";

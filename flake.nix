@@ -39,7 +39,6 @@
           ./users/kayon/load.nix
         ];
       }
-
       {
         hostname = "oracle-main";
         system = "aarch64-linux";
@@ -53,6 +52,19 @@
           ./users/kayon/load.nix
           ./users/share/load.nix
         ];
+      }
+      {
+        hostname = "jdy-desktop";
+        system = "x86_64-linux";
+        users = [{
+          name = "kayon";
+          home-manager-imports = [ ./users/kayon/main.nix ];
+        }];
+        modules = [
+          ./hosts/common.nix
+          ./hosts/jdy-desktop
+          ./users/kayon/load.nix
+        ];  
       }
       {
         hostname = "mv-church";
