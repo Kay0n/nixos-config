@@ -15,6 +15,7 @@
     zoxide
     neofetch
     xclip
+    nil
   ];
 
   programs.git = {

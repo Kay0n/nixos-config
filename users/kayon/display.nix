@@ -3,6 +3,8 @@
 
 {
 
+  services.arrpc.enable = true;
+
   gtk = {
     enable = true;
     theme = {
@@ -25,7 +27,10 @@
   };
 
   home.packages = with pkgs; [
-    discord
+    gnomeExtensions.steal-my-focus-window
+    gnomeExtensions.tray-icons-reloaded
+    vesktop
+    arrpc
     steam
     calibre
     prismlauncher
@@ -33,7 +38,6 @@
     qbittorrent
     lutris
     wineWowPackages.stable
-    nil
   ];
 
   dconf.settings = { 
