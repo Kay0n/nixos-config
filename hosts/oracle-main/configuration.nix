@@ -26,7 +26,8 @@
       web-skip='ip='
     '';
   };
-
+  
+  programs.nix-ld.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 80 50000 50001 50002 55551 55552 55553 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];

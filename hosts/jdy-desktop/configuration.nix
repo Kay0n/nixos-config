@@ -22,7 +22,8 @@
     '';
   };
 
-
+  programs.nix-ld.enable = true; 
+  
   # networking.firewall.allowedTCPPorts = [ 50000 50001 50002 50005 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   networking.firewall.enable = false;
