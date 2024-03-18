@@ -29,8 +29,8 @@
   home.packages = with pkgs; [
     gnomeExtensions.steal-my-focus-window
     gnomeExtensions.tray-icons-reloaded
-    vesktop
-    arrpc
+    vesktop                 # discord client
+    arrpc                   # rich presence server
     steam
     calibre
     prismlauncher
@@ -38,6 +38,7 @@
     qbittorrent
     lutris
     wineWowPackages.stable
+    ardour                  # multitrack recording
   ];
 
   dconf.settings = { 
