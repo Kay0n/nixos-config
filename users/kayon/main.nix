@@ -44,9 +44,10 @@
       cd = "z";
       nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config/";
       clip = "xclip -r -selection clipboard";
+      rs = "rsync -avz --info=progress2";
     };  
-
-    enableAutosuggestions = true;
+    
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     oh-my-zsh = {
@@ -57,7 +58,6 @@
 
   programs.tmux = {
     enable = true;
-    # Custom tmux configuration
     extraConfig = ''
       unbind C-b
       set-option -g prefix C-a
