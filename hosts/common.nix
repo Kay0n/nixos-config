@@ -32,10 +32,16 @@
     git
     python3
     tmux
-    temurin-jre-bin-17
     unzip
+    neovim
+    temurin-jre-bin-17
   ];
 
+  programs.java = {
+    enable = true;
+    package = pkgs.temurin-jre-bin-21;
+  };
+  
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;

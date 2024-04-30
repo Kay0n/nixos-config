@@ -13,13 +13,6 @@
     };
   };
 
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-vscode-remote.remote-ssh
-    ];
-  };
-
   qt = {
     enable = true;
     platformTheme = "gnome";
@@ -37,9 +30,30 @@
     protonup-qt
     qbittorrent
     lutris
+    qdirstat
     wineWowPackages.stable
-    ardour                  # multitrack recording
+    libreoffice
   ];
+
+  programs.vscode = {
+    enable = true;
+    enableUpdateCheck = true;
+    enableExtensionUpdateCheck = true;
+    mutableExtensionsDir = false;
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      ms-vscode-remote.remote-ssh
+      redhat.java
+      vscjava.vscode-java-debug
+      visualstudioexptteam.vscodeintellicode
+      vscjava.vscode-maven
+      vscjava.vscode-java-dependency
+      vscjava.vscode-gradle
+      arrterian.nix-env-selector
+      mathiasfrohlich.kotlin
+    ];
+
+  };
 
   dconf.settings = { 
 

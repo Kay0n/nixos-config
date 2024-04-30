@@ -43,9 +43,9 @@
 
   environment.systemPackages = with pkgs; [
     firefox
-    gnome.file-roller
+    gnome.file-roller # archive manager
     gnome.nautilus
-    kgx
+    kgx # console
     gnome-text-editor
     gnome.gnome-system-monitor
     winetricks

@@ -15,7 +15,7 @@
     zoxide
     neofetch
     xclip
-    nil
+    nil # nix language server
   ];
 
   programs.git = {
@@ -45,6 +45,7 @@
       nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config/";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
+      nixe = "code ~/.nixos-config/ && exit";
     };  
     
     autosuggestion.enable = true;
