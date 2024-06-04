@@ -1,9 +1,13 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
-
+  
   imports = [
     inputs.sops-nix.nixosModules.sops
+    inputs.home-manager.nixosModules.home-manager
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -26,24 +30,23 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  environment.systemPackages = with pkgs; [
-    home-manager
+
+  services.printing.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
+  networking.networkmanager.enable = true;
+
+   environment.systemPackages = with pkgs; [
     wget
     git
     python3
     tmux
     unzip
-    neovim
-    temurin-jre-bin-17
   ];
 
-  programs.java = {
-    enable = true;
-    package = pkgs.temurin-jre-bin-21;
-  };
-  
-  nixpkgs.config.allowUnfree = true;
 
-  networking.networkmanager.enable = true;
+  system.stateVersion = "23.11"; 
+
   
 }

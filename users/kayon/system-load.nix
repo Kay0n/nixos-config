@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ...}:
 {
 
   # load user profile

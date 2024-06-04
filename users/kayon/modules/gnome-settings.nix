@@ -1,9 +1,5 @@
 
-{ config, pkgs, lib, ... }:
-
-{
-
-  services.arrpc.enable = true;
+{ pkgs, ... }: {
 
   gtk = {
     enable = true;
@@ -15,45 +11,16 @@
 
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style.name = "adwaita-dark";
+    platformTheme.name = "adwaita";
+    # style.name = "adwaita-dark";
   };
 
   home.packages = with pkgs; [
     gnomeExtensions.steal-my-focus-window
     gnomeExtensions.tray-icons-reloaded
-    vesktop                 # discord client
-    arrpc                   # rich presence server
-    steam
-    calibre
-    prismlauncher
-    protonup-qt
-    qbittorrent
-    lutris
-    qdirstat
-    wineWowPackages.stable
-    libreoffice
   ];
 
-  programs.vscode = {
-    enable = true;
-    enableUpdateCheck = true;
-    enableExtensionUpdateCheck = true;
-    mutableExtensionsDir = false;
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      ms-vscode-remote.remote-ssh
-      redhat.java
-      vscjava.vscode-java-debug
-      visualstudioexptteam.vscodeintellicode
-      vscjava.vscode-maven
-      vscjava.vscode-java-dependency
-      vscjava.vscode-gradle
-      arrterian.nix-env-selector
-      mathiasfrohlich.kotlin
-    ];
-
-  };
+  
 
   dconf.settings = { 
 
@@ -104,3 +71,6 @@
   };
 
 }
+
+
+

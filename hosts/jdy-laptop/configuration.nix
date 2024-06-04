@@ -1,85 +1,66 @@
-
-
-{ config, pkgs, ... }:
+{ pkgs, ... }: 
 
 {
+
+
+  imports = [
+    ../../modules/common.nix
+    ../../users/kayon/system-load.nix
+
+    ../../modules/nvidia.nix
+    ../../modules/pipewire.nix
+    ../../modules/gnome.nix
+    ../../modules/java.nix
+    
+  ];
+  
+
+  # user specific settings   
+  home-manager.users.kayon = {
+    imports = [
+      ../../users/kayon
+      ../../users/kayon/modules/vscode.nix
+      ../../users/kayon/modules/gnome-settings.nix
+      ../../users/kayon/modules/tmux.nix
+      ../../users/kayon/modules/git.nix
+      ../../users/kayon/modules/zsh.nix
+      
+    ];
+
+    services.arrpc.enable = true;
+
+    home.packages = with pkgs; [
+      vesktop                 # discord client
+      arrpc                   # rich presence server
+      steam
+      calibre
+      prismlauncher
+      protonup-qt
+      qbittorrent
+      lutris
+      qdirstat
+      wineWowPackages.stable
+      winetricks
+      libreoffice
+      nil # nix language server
+      
+    ];
+  };
+  
+
+  environment.systemPackages = with pkgs; [
+    firefox
+    vlc
+  ];
+
+  programs.zsh.enable = true;
+
 
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "jdy-laptop"; 
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.core-utilities.enable = false;
-
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-
-  };
-
-  programs.zsh.enable = true;
- 
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    firefox
-    gnome.file-roller # archive manager
-    gnome.nautilus
-    kgx # console
-    gnome-text-editor
-    gnome.gnome-system-monitor
-    winetricks
-    vlc
-  ];
-
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module (not nouveau)
-    open = false;
-
-    # Enable the Nvidia settings menu (program nvidia-settings)
-    nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  system.stateVersion = "23.11"; 
 
 }
