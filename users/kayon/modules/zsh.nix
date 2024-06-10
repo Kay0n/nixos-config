@@ -22,7 +22,7 @@
       nixrb = "sudo nixos-rebuild switch --flake";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
-      nixe = "code ~/.nixos-config/ && exit";
+      nixe = "code /etc/nixos/ && exit";
     };  
     
     autosuggestion.enable = true;
