@@ -19,7 +19,7 @@
       ls = "ls -1 --color=auto";
       py = "python";
       cd = "z";
-      nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config/";
+      nixrb = "sudo nixos-rebuild switch --flake";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
       nixe = "code ~/.nixos-config/ && exit";
