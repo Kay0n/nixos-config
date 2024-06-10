@@ -64,7 +64,7 @@
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  networking.hostName = "jdy-laptop"; 
+  networking.hostName = "tb-desktop"; 
 
 
 

@@ -23,6 +23,7 @@
     kgx # console
     gnome-text-editor
     gnome.gnome-system-monitor
+    gnome.gnome-disk-utility
   ];
 
 }

@@ -39,6 +39,13 @@
           ./hosts/oracle-main
         ];
       };
+      tb-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/tb-desktop
+        ];
+      };
     };
   };
 }
