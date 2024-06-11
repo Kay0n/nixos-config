@@ -1,6 +1,13 @@
-{ pkgs, ... }: 
+{ pkgs, lib, ... }: 
 
 {
+
+  # override bootloader to grub
+  # boot.loader.systemd-boot.enable = lib.mkForce false;
+  # boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
+  # boot.loader.grub.enable = lib.mkForce true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.useOSProber = true;
 
 
   imports = [
