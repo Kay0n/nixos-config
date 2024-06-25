@@ -43,10 +43,13 @@
       winetricks
       libreoffice
       nil # nix language server
+
+      quickemu
       
     ];
   };
   
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     firefox
@@ -58,9 +61,8 @@
   programs.zsh.enable = true;
 
   # run appimages with the appigame-run interpreter
-  programs.appimage.binfmt = true;
-
-
+  # programs.appimage.binfmt = true;
+  
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 

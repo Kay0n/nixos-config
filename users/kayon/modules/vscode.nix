@@ -17,6 +17,7 @@
       vscjava.vscode-gradle
       arrterian.nix-env-selector
       mathiasfrohlich.kotlin
+      ms-python.python
     ];
 
   };
