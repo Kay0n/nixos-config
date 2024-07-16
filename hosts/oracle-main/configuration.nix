@@ -2,11 +2,13 @@
 
 {
 
-  imports = [
-    ../../modules/common.nix
-    ../../users/kayon/system-load.nix
+  networking.hostName = "oracle-main";
 
+  imports = [
+    ../../users/kayon/system-load.nix
+    ../../modules/common.nix
     ../../modules/java.nix
+    ../../modules/dotnet.nix
   ];
   
 
@@ -17,7 +19,6 @@
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
-      
     ];
 
     home.packages = with pkgs; [
@@ -30,7 +31,7 @@
 
   programs.zsh.enable = true;
 
-  networking.hostName = "oracle-main";
+  programs.nix-ld.enable = true;
 
   services.openssh = {
     enable = true;
@@ -56,9 +57,8 @@
   };
   
 
-  networking.firewall.allowedTCPPorts = [ 80 50000 50001 50002 55551 55552 55553 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 443 80 50000 50001 50002 55551 55552 55553 22 ];
+
 
 
 

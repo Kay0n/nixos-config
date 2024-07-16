@@ -11,6 +11,7 @@
     ../../modules/pipewire.nix
     ../../modules/gnome.nix
     ../../modules/java.nix
+    ../../modules/dotnet.nix
     
   ];
   
