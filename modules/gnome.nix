@@ -18,12 +18,12 @@
   services.xserver.excludePackages = with  pkgs; [ xterm ];
 
   environment.systemPackages = with pkgs; [
-    gnome.file-roller # archive manager
-    gnome.nautilus # file manager
+    file-roller # archive manager
+    nautilus # file manager
     kgx # console
     gnome-text-editor
-    gnome.gnome-system-monitor
-    gnome.gnome-disk-utility
+    gnome-system-monitor
+    gnome-disk-utility
     loupe
   ];
 

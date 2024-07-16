@@ -37,12 +37,13 @@
 
   networking.networkmanager.enable = true;
 
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     wget
     git
     python3
     tmux
     unzip
+    steam-run
   ];
 
 
