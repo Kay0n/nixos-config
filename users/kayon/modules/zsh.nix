@@ -6,7 +6,6 @@
     enable = true;
     
     initExtra = ''
-      eval "$(zoxide init zsh)"
       bindkey '\t' autosuggest-accept
       ZSH_AUTOSUGGEST_STRATEGY=(completion history)
       unsetopt beep
@@ -18,7 +17,6 @@
       sshm = "ssh kayon@mv.refract.online";
       ls = "ls -1 --color=auto";
       py = "python";
-      cd = "z";
       nixrb = "sudo nixos-rebuild switch --flake /etc/nixos";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
@@ -27,6 +25,7 @@
     
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    enableCompletion = true;
 
     oh-my-zsh = {
       enable = true;

@@ -18,6 +18,7 @@
     qpwgraph
   ];
 
+  virtualisation.spiceUSBRedirection.enable = true;
 }
 
 

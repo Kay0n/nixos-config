@@ -1,30 +1,32 @@
 
 { pkgs, ... }: {
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    excludePackages = with  pkgs; [ xterm ];
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+
   services.gnome.core-utilities.enable = false;
 
   environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome.gnome-music nixos-render-docs pantheon.epiphany ];
-  services.xserver.excludePackages = with  pkgs; [ xterm ];
 
   environment.systemPackages = with pkgs; [
     file-roller # archive manager
-    nautilus # file manager
+    nautilus # file manager  services.xserver.
     kgx # console
     gnome-text-editor
     gnome-system-monitor
     gnome-disk-utility
     loupe
+    spice-gtk
   ];
 
 }

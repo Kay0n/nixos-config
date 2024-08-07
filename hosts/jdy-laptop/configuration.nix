@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, lib, ... }: 
 
 {
 
@@ -46,6 +46,7 @@
       nil # nix language server
 
       quickemu
+      owmods-cli
       
     ];
   };

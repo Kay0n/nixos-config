@@ -4,10 +4,16 @@
   services.nginx.enable = true;
 
   services.nginx.virtualHosts."refract.online" = {
-      addSSL = true;
+      # addSSL = true;
       enableACME = true;
-      root = "/var/www/";
+      forceSSL = true;
+      # root = "/var/www/";
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8080";
+      };
   };
+
+
 
   security.acme = {
     acceptTerms = true;

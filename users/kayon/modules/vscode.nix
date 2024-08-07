@@ -7,18 +7,29 @@
     enableExtensionUpdateCheck = true;
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
+      # base
       ms-vscode-remote.remote-ssh
+      visualstudioexptteam.vscodeintellicode
+
+      # java
       redhat.java
       vscjava.vscode-java-debug
-      visualstudioexptteam.vscodeintellicode
       vscjava.vscode-maven
       vscjava.vscode-java-dependency
       vscjava.vscode-gradle
-      arrterian.nix-env-selector
       mathiasfrohlich.kotlin
+
+      #nix
+      jnoortheen.nix-ide
+      arrterian.nix-env-selector
+      
+      # python
       ms-python.python
       ms-python.vscode-pylance
+
+      # misc
+      tamasfe.even-better-toml
+      ms-vsliveshare.vsliveshare
     ];
 
   };

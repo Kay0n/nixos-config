@@ -9,6 +9,7 @@
     ../../modules/common.nix
     ../../modules/java.nix
     ../../modules/dotnet.nix
+    ../../modules/nginx.nix
   ];
   
 
