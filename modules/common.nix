@@ -43,7 +43,6 @@
     python3
     tmux
     unzip
-    steam-run
   ];
 
 
