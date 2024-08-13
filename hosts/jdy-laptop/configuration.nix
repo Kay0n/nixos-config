@@ -47,18 +47,23 @@
 
       quickemu
       owmods-cli
+      rustdesk-flutter
+      obsidian
+      nodejs
       
     ];
   };
   
-  virtualisation.docker.enable = true;
-
   environment.systemPackages = with pkgs; [
     firefox
     vlc
     appimage-run
     gparted
   ];
+
+  virtualisation.docker.enable = true;
+
+  services.tailscale.enable = true;
 
   programs.zsh.enable = true;
 
