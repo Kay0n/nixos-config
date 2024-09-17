@@ -30,6 +30,15 @@
       # misc
       tamasfe.even-better-toml
       ms-vsliveshare.vsliveshare
+      continue.continue
+      # geequlim.godot-tools
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "godot-tools";
+        publisher = "geequlim";
+        version = "2.1.0";
+        sha256 = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
+      }
     ];
 
   };

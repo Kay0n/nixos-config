@@ -16,7 +16,7 @@
 
   services.gnome.core-utilities.enable = false;
 
-  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome.gnome-music nixos-render-docs pantheon.epiphany ];
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-music nixos-render-docs pantheon.epiphany ];
 
   environment.systemPackages = with pkgs; [
     file-roller # archive manager

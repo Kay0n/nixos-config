@@ -6,6 +6,7 @@
 
   imports = [
     ../../users/kayon/system-load.nix
+    ../../users/share/system-load.nix
     ../../modules/common.nix
     ../../modules/java.nix
     ../../modules/dotnet.nix

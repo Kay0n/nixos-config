@@ -50,11 +50,15 @@
       rustdesk-flutter
       obsidian
       nodejs
-      
+      godot_4
+      r2modman
+      protontricks
+      shell-gpt
     ];
   };
   
   environment.systemPackages = with pkgs; [
+    (blender.override {cudaSupport = true;} )
     firefox
     vlc
     appimage-run
