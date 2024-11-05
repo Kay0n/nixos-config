@@ -2,7 +2,6 @@
 
 {
 
-
   imports = [
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
@@ -42,7 +41,7 @@
       qdirstat
       wineWowPackages.stable
       winetricks
-      libreoffice
+      onlyoffice-bin
       nil # nix language server
 
       quickemu
@@ -54,20 +53,27 @@
       r2modman
       protontricks
       shell-gpt
+      rclone
     ];
   };
   
   environment.systemPackages = with pkgs; [
-    (blender.override {cudaSupport = true;} )
+    blender
+    # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
     firefox
     vlc
     appimage-run
     gparted
+    exfatprogs # exfat drivers
+    ntfs3g # ntfs driver
+    intel-gpu-tools
   ];
 
   virtualisation.docker.enable = true;
 
   services.tailscale.enable = true;
+
+  services.logind.lidSwitch = "lock";
 
   programs.zsh.enable = true;
 

@@ -29,9 +29,7 @@
 
       # misc
       tamasfe.even-better-toml
-      ms-vsliveshare.vsliveshare
-      continue.continue
-      # geequlim.godot-tools
+      svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "godot-tools";
