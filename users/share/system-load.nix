@@ -1,4 +1,4 @@
-{ lib, ...}:
+{ lib, pkgs, ...}:
 {
 
   # load user profile
