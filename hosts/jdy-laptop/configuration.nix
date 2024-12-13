@@ -93,6 +93,6 @@
 
   networking.hostName = "jdy-laptop"; 
 
-
+  system.stateVersion = "23.11"; 
 
 }
