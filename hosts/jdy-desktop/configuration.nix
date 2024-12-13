@@ -2,22 +2,14 @@
 
 {
 
-  # override bootloader to grub
-  # boot.loader.systemd-boot.enable = lib.mkForce false;
-  # boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
-  # boot.loader.grub.enable = lib.mkForce true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
-
-
   imports = [
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
 
-    ../../modules/nvidia.nix
     ../../modules/pipewire.nix
     ../../modules/gnome.nix
     ../../modules/java.nix
+    # ../../modules/dotnet.nix
     
   ];
   
@@ -45,33 +37,53 @@
       protonup-qt
       qbittorrent
       lutris
-      qdirstat
+      qdirstat 
       wineWowPackages.stable
-      winetricks
-      libreoffice
+      onlyoffice-bin
       nil # nix language server
-      
+
+      # quickemu
+      # owmods-cli
+      rustdesk-flutter
+      # obsidian
+      # nodejs
+      # godot_4
+      # r2modman
+      # shell-gpt
+      rclone
     ];
   };
   
-
   environment.systemPackages = with pkgs; [
+    blender
+    # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
     firefox
     vlc
     appimage-run
     gparted
+    exfatprogs # exfat drivers
+    ntfs3g # ntfs driver
+    gamescope
   ];
+
+  virtualisation.docker.enable = true;
 
   programs.zsh.enable = true;
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=3s
+  '';
+  systemd.user.extraConfig = ''
+    DefaultTimeoutStopSec=3s
+  '';
+
   # run appimages with the appigame-run interpreter
-  programs.appimage.binfmt = true;
-
-
+  # programs.appimage.binfmt = true;
+  
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  networking.hostName = "tb-desktop"; 
+  networking.hostName = "jdy-desktop"; 
 
 
 

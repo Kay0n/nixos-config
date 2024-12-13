@@ -31,7 +31,7 @@
 
     home.packages = with pkgs; [
       vesktop # discord client
-      arrpc # rich presence server
+      arrpc # discord rich presence server
       steam
       calibre
       prismlauncher
@@ -67,6 +67,7 @@
     exfatprogs # exfat drivers
     ntfs3g # ntfs driver
     intel-gpu-tools
+    gamescope
   ];
 
   virtualisation.docker.enable = true;
@@ -76,6 +77,13 @@
   services.logind.lidSwitch = "lock";
 
   programs.zsh.enable = true;
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=3s
+  '';
+  systemd.user.extraConfig = ''
+    DefaultTimeoutStopSec=3s
+  '';
 
   # run appimages with the appigame-run interpreter
   # programs.appimage.binfmt = true;

@@ -7,7 +7,7 @@
     description = "Kayon";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    initialPassword = "password";
+    initialPassword = "password"; # CHANGE WHEN USING
   };
 
   # jdy-laptop id_ed25519.pub

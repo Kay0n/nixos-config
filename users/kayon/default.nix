@@ -12,7 +12,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    zoxide
     xclip
   ];
   
