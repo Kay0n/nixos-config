@@ -1,11 +1,14 @@
 { pkgs, lib, ... }: 
 
 {
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   imports = [
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
-
     ../../modules/pipewire.nix
     ../../modules/gnome.nix
     ../../modules/java.nix
@@ -28,6 +31,8 @@
 
     services.arrpc.enable = true;
 
+    
+
     home.packages = with pkgs; [
       vesktop # discord client
       arrpc # rich presence server
@@ -45,29 +50,30 @@
       # quickemu
       # owmods-cli
       rustdesk-flutter
-      # obsidian
+      obsidian
       # nodejs
       # godot_4
-      # r2modman
-      # shell-gpt
-      rclone
+      r2modman
+      gradle
+      # rclone
     ];
   };
   
   environment.systemPackages = with pkgs; [
     blender
-    # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
     firefox
     vlc
-    appimage-run
     gparted
-    exfatprogs # exfat drivers
-    ntfs3g # ntfs driver
-    gamescope
+    # exfatprogs # exfat drivers
+    # ntfs3g # ntfs driver
+    # gamescope
+    # lm_sensors
   ];
 
   virtualisation.docker.enable = true;
 
+  programs.direnv.enable = true;
+  
   programs.zsh.enable = true;
 
   systemd.extraConfig = ''
@@ -85,6 +91,8 @@
 
   networking.hostName = "jdy-desktop"; 
 
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
 
+  networking.firewall.allowedTCPPorts = [ 25565 8080 ];
 
 }
