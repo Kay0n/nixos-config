@@ -23,7 +23,7 @@
     nautilus # file manager  services.xserver.
     kgx # console
     gnome-text-editor
-    gnome-system-monitor
+    gnome-tweaks
     gnome-disk-utility
     loupe
     spice-gtk

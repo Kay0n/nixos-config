@@ -22,6 +22,8 @@
       PermitEmptyPasswords        no
       GatewayPorts                yes
       AllowTcpForwarding          yes
+      ClientAliveInterval         20
+      ClientAliveCountMax         5
       HostbasedAuthentication     no
       RhostsRSAAuthentication     no
       AllowAgentForwarding        no

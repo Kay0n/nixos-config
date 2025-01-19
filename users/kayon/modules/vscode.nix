@@ -12,15 +12,15 @@
       visualstudioexptteam.vscodeintellicode
 
       # === java extensions ===
-      # redhat.java
-      # vscjava.vscode-java-debug
-      # vscjava.vscode-maven
-      # vscjava.vscode-java-dependency
-      # vscjava.vscode-gradle
-      # mathiasfrohlich.kotlin
+      redhat.java
+      vscjava.vscode-java-debug
+      vscjava.vscode-maven
+      vscjava.vscode-java-dependency
+      vscjava.vscode-gradle
+
 
       # === nix === 
-      jnoortheen.nix-ide
+      jnoortheen.nix-ide # syntax and language support
       # arrterian.nix-env-selector
       
       # === python ===
@@ -28,6 +28,7 @@
       ms-python.vscode-pylance
 
       # === misc ===
+      mkhl.direnv
       # tamasfe.even-better-toml
       # svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

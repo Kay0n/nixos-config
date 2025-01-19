@@ -1,5 +1,5 @@
 
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   gtk = {
     enable = true;
@@ -26,6 +26,10 @@
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+    };
+
+    "org/gnome/mutter" = {
+      experimental-features = ["scale-monitor-framebuffer"];
     };
 
     "org/gnome/shell/keybindings" = {
@@ -59,8 +63,8 @@
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Shift><Control>Escape";
-      command = "gnome-system-monitor";
-      name = "System Moniter";
+      command = "${pkgs.mission-center}/bin/missioncenter";
+      name = "Mission Center";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {

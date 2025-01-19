@@ -10,10 +10,12 @@
     '';
   in
   {
+    programs.java = {
+      enable = true;
+      package = pkgs.temurin-jre-bin-21;
+    };
+
     environment.systemPackages = with pkgs; [
-      temurin-jre-bin-21
-      temurin-jre-bin-8
-      temurin-jre-bin-17
       java8 
       java17
     ];
