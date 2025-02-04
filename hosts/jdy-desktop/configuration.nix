@@ -54,7 +54,6 @@
       # nodejs
       # godot_4
       r2modman
-      gradle
       # rclone
     ];
   };
