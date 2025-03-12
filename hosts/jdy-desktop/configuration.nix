@@ -54,6 +54,8 @@
       # nodejs
       # godot_4
       r2modman
+      nodejs
+      sqlite
       # rclone
     ];
   };
@@ -86,7 +88,7 @@
   # programs.appimage.binfmt = true;
   
   # # Used to setup aarch64 oracle with nixos-anywhere  
-  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "jdy-desktop"; 
 

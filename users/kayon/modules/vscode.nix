@@ -29,15 +29,23 @@
 
       # === misc ===
       mkhl.direnv
+      # saoudrizwan.claude-dev # cline
       # tamasfe.even-better-toml
       # svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "claude-dev";
+        publisher = "saoudrizwan";
+        version = "3.6.1";
+        sha256 = "sha256-EGIReHLwMz+1zh/I1Ui8if0u7pgaCrEMuQifZVkT1N8=";
+      }
       # {
       #   name = "godot-tools";
       #   publisher = "geequlim";
       #   version = "2.1.0";
       #   sha256 = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
       # }
+
     ];
 
   };
