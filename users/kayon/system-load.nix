@@ -5,10 +5,11 @@
   users.users.kayon = {
     isNormalUser = true;
     description = "Kayon";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
     initialPassword = "password"; # CHANGE WHEN USING
   };
+  
 
   # ssh keys
   users.users.kayon.openssh.authorizedKeys.keys = [

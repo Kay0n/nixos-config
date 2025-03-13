@@ -9,7 +9,7 @@
     ../../users/share/system-load.nix
     ../../modules/common.nix
     ../../modules/java.nix
-    ../../modules/dotnet.nix
+    # ../../modules/dotnet.nix
     ../../modules/nginx.nix
   ];
   
@@ -33,11 +33,11 @@
 
   programs.zsh.enable = true;
 
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "server"; 
-    openFirewall = true; # UDP 41641
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   useRoutingFeatures = "server"; 
+  #   openFirewall = true; # UDP 41641
+  # };
 
   programs.nix-ld.enable = true;
 
@@ -46,26 +46,28 @@
     settings.GatewayPorts = "yes";
   };
 
-  services.ddclient = {
-    enable = true;
-    protocol = "cloudflare";
-    zone = "refract.online";
-    use = "web";
-    passwordFile = "/run/secrets/cloudflare-token";
-    interval = "5min";
-    domains = [
-      "refract.online"
-      "alt.refract.online"
-      "mini.refract.online"
-    ];
-    extraConfig = ''
-      web='https://cloudflare.com/cdn-cgi/trace'
-      web-skip='ip='
-    '';
-  };
+  virtualisation.docker.enable = true;
+
+  # services.ddclient = {
+  #   enable = true;
+  #   protocol = "cloudflare";
+  #   zone = "refract.online";
+  #   use = "web";
+  #   passwordFile = "/run/secrets/cloudflare-token";
+  #   interval = "5min";
+  #   domains = [
+  #     "refract.online"
+  #     "alt.refract.online"
+  #     "mini.refract.online"
+  #   ];
+  #   extraConfig = ''
+  #     web='https://cloudflare.com/cdn-cgi/trace'
+  #     web-skip='ip='
+  #   '';
+  # };
   
 
-  networking.firewall.allowedTCPPorts = [ 443 80 50000 50001 50002 55551 55552 55553 22 ];
+  networking.firewall.allowedTCPPorts = [ 443 80 50000 50001 50002 55551 55552 55553 22 8083 8080 ];
 
 
 
