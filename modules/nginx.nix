@@ -13,6 +13,11 @@
           proxyPass = "http://127.0.0.1:8083";
         };
     };
+    "refract.online" = {
+        enableACME = true;
+        forceSSL = true;
+        root = "/var/www/";
+    };
   };
 
 
