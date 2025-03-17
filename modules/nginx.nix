@@ -17,6 +17,12 @@
         enableACME = true;
         forceSSL = true;
         root = "/var/www/";
+        locations."/" = {
+            extraConfig = ''
+              autoindex on;
+              autoindex_exact_size off;
+            '';
+        };
     };
   };
 
