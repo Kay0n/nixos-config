@@ -29,6 +29,7 @@
   
 
   environment.systemPackages = with pkgs; [
+    vscode
   ];
 
   programs.zsh.enable = true;
