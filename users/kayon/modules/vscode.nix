@@ -12,11 +12,11 @@
       visualstudioexptteam.vscodeintellicode
 
       # === java extensions ===
-      redhat.java
-      vscjava.vscode-java-debug
-      vscjava.vscode-maven
-      vscjava.vscode-java-dependency
-      vscjava.vscode-gradle
+      # redhat.java
+      # vscjava.vscode-java-debug
+      # vscjava.vscode-maven
+      # vscjava.vscode-java-dependency
+      # vscjava.vscode-gradle
 
 
       # === nix === 
@@ -31,13 +31,13 @@
       mkhl.direnv
       # saoudrizwan.claude-dev # cline
       # tamasfe.even-better-toml
-      # svelte.svelte-vscode
+      svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "claude-dev";
         publisher = "saoudrizwan";
-        version = "3.6.1";
-        sha256 = "sha256-EGIReHLwMz+1zh/I1Ui8if0u7pgaCrEMuQifZVkT1N8=";
+        version = "3.8.3";
+        sha256 = "sha256-0FAxQ67AKcSbCp8vQr2KUOIRw8LEQ3TQyJkfJwtmdoY=";
       }
       # {
       #   name = "godot-tools";
