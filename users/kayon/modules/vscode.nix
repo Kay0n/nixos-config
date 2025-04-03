@@ -12,11 +12,11 @@
       visualstudioexptteam.vscodeintellicode
 
       # === java extensions ===
-      # redhat.java
-      # vscjava.vscode-java-debug
-      # vscjava.vscode-maven
-      # vscjava.vscode-java-dependency
-      # vscjava.vscode-gradle
+      redhat.java
+      vscjava.vscode-java-debug
+      vscjava.vscode-maven
+      vscjava.vscode-java-dependency
+      vscjava.vscode-gradle
 
 
       # === nix === 
@@ -30,7 +30,6 @@
       # === misc ===
       mkhl.direnv
       # saoudrizwan.claude-dev # cline
-      # tamasfe.even-better-toml
       svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
@@ -38,6 +37,12 @@
         publisher = "saoudrizwan";
         version = "3.8.3";
         sha256 = "sha256-0FAxQ67AKcSbCp8vQr2KUOIRw8LEQ3TQyJkfJwtmdoY=";
+      }
+      {
+        name = "remote-server";
+        publisher = "ms-vscode";
+        version = "1.6.2025010809";
+        sha256 = "sha256-m9P8WFb3qYGF/oL4f6kHQSwd+YCc4vsx1XFhkiQE1B8=";
       }
       # {
       #   name = "godot-tools";

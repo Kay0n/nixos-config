@@ -12,6 +12,7 @@
     ../../modules/pipewire.nix
     ../../modules/gnome.nix
     ../../modules/java.nix
+    ../../modules/syncthing.nix
     # ../../modules/dotnet.nix
     
   ];
@@ -21,7 +22,7 @@
   home-manager.users.kayon = {
     imports = [
       ../../users/kayon
-      ../../users/kayon/modules/vscode.nix
+      # ../../users/kayon/modules/vscode.nix
       ../../users/kayon/modules/gnome-settings.nix
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
@@ -49,11 +50,12 @@
 
       # quickemu
       # owmods-cli
-      rustdesk-flutter
+      # rustdesk-flutter
       obsidian
       # nodejs
       # godot_4
       r2modman
+      discord
       nodejs
       sqlite
       # rclone
@@ -65,11 +67,24 @@
     firefox
     vlc
     gparted
+    vscode-fhs
+    clinfo
     # exfatprogs # exfat drivers
     # ntfs3g # ntfs driver
     # gamescope
     # lm_sensors
   ];
+
+
+  hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+  ];
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
+
+
 
   virtualisation.docker.enable = true;
 

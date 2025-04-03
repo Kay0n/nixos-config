@@ -13,9 +13,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pavucontrol
-    pulseaudio
-    qpwgraph
+    # pavucontrol
+    # pulseaudio
+    # qpwgraph
   ];
 
   virtualisation.spiceUSBRedirection.enable = true;
