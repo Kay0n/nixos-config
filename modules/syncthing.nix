@@ -11,7 +11,7 @@
     overrideDevices = true;
     overrideFolders = true;
     settings = {
-      
+
       devices = {
         "jdy-desktop" = { id = "JIMQ75S-RWRJ4XZ-L2ILZXN-FSEIOL2-OJY2J4P-ZJ72XOQ-6NFOJRW-EQ3TCA7"; };
         "oracle-main" = { id = "DEVICE-ID-GOES-HERE"; };
@@ -31,7 +31,7 @@
       };
 
     };
-    guiAddress = "0.0.0.0:50000"
+    guiAddress = "0.0.0.0:50000";
 
   };
 

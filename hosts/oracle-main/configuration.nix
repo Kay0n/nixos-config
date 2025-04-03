@@ -11,6 +11,7 @@
     ../../modules/java.nix
     # ../../modules/dotnet.nix
     ../../modules/nginx.nix
+    ../../modules/syncthing.nix
   ];
   
 
