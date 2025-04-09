@@ -16,6 +16,7 @@
         "jdy-desktop" = { id = "JIMQ75S-RWRJ4XZ-L2ILZXN-FSEIOL2-OJY2J4P-ZJ72XOQ-6NFOJRW-EQ3TCA7"; };
         "oracle-main" = { id = "QGSXIVA-3JQP6G5-D25L2BP-AD4J5N5-T7H6BQZ-TZUFFJO-HO6KAJV-YT2KMAJ"; };
         "jdy-samsung" = { id = "Y7224Y7-NQW7NB5-H74YYVA-KG5DHI4-MVAWMMG-INMA4J3-HYVH5RW-4SBPUQ2"; };
+        # "jdy-laptop" = { id = ""; };
       };
 
       folders = {
@@ -26,6 +27,7 @@
             "jdy-desktop" 
             "jdy-samsung" 
             "oracle-main" 
+            # "jdy-laptop"
           ];
         };
         "congealed-magma" = {
@@ -35,6 +37,7 @@
             "jdy-desktop" 
             "jdy-samsung" 
             "oracle-main" 
+            # "jdy-laptop"
           ];
         };
       };

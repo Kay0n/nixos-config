@@ -5,13 +5,11 @@
   imports = [
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
-
     ../../modules/nvidia.nix
     ../../modules/pipewire.nix
     ../../modules/gnome.nix
     ../../modules/java.nix
-    ../../modules/dotnet.nix
-    
+    ../../modules/syncthing.nix
   ];
   
 
@@ -27,52 +25,48 @@
       
     ];
 
-    services.arrpc.enable = true;
-
     home.packages = with pkgs; [
       vesktop # discord client
-      arrpc # discord rich presence server
-      steam
+      # arrpc # discord rich presence server
+      # steam
       calibre
       prismlauncher
-      protonup-qt
+      # protonup-qt
       qbittorrent
       lutris
       qdirstat
-      wineWowPackages.stable
-      winetricks
+      # wineWowPackages.stable
+      # winetricks
       onlyoffice-bin
       nil # nix language server
 
-      quickemu
-      owmods-cli
-      rustdesk-flutter
+      # quickemu
+      # owmods-cli
+      # rustdesk-flutter
       obsidian
-      nodejs
-      godot_4
-      r2modman
-      protontricks
-      shell-gpt
-      rclone
+      # nodejs
+      # godot_4
+      # r2modman
+      # protontricks
+      # shell-gpt
+      # rclone
+      
     ];
   };
   
   environment.systemPackages = with pkgs; [
-    blender
+    # blender
     # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
     firefox
     vlc
-    appimage-run
+    # appimage-run
     gparted
     exfatprogs # exfat drivers
     ntfs3g # ntfs driver
     intel-gpu-tools
-    gamescope
   ];
 
   virtualisation.docker.enable = true;
-
-  services.tailscale.enable = true;
 
   services.logind.lidSwitch = "lock";
 
