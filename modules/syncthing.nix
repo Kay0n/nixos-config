@@ -40,6 +40,16 @@
             "jdy-laptop"
           ];
         };
+        "nixos-config" = {
+          id = "nixos-config";
+          path = "/home/kayon/.nixos-config";
+          devices = [ 
+            "jdy-desktop" 
+            "jdy-samsung" 
+            "oracle-main" 
+            "jdy-laptop"
+          ];
+        };
       };
 
     };
