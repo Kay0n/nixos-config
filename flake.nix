@@ -4,16 +4,19 @@
   # Define input flakes that this flake will use
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
-    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    glaumar_repo = {
+      url = "github:glaumar/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
   };
 
   outputs = { nixpkgs, home-manager, sops-nix, ... } @ inputs: {
