@@ -17,10 +17,10 @@
       sshm = "ssh kayon@mv.refract.online";
       ls = "ls -1 --color=auto";
       py = "python";
-      nixrb = "sudo nixos-rebuild switch --flake /etc/nixos";
+      nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
-      nixe = "code /etc/nixos && exit";
+      nixe = "code /home/kayon/.nixos-config & disown; exit"
     };  
     
     autosuggestion.enable = true;
