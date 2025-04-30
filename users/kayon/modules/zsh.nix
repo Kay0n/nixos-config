@@ -20,7 +20,7 @@
       nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config";
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
-      nixe = "code /home/kayon/.nixos-config & disown; exit"
+      nixe = "code /home/kayon/.nixos-config & disown; exit";
     };  
     
     autosuggestion.enable = true;
