@@ -41,7 +41,7 @@
           ];
         };
         "nixos-config" = {
-          id = "obsidian-vault";
+          id = "nixos-config";
           path = "/home/kayon/.nixos-config";
           devices = [ 
             "jdy-desktop" 
