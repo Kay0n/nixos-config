@@ -35,7 +35,6 @@
     "glaumar_repo": {
       "inputs": {
         "nixpkgs": [
-          "oracle-main",
           "nixpkgs"
         ]
       },
@@ -56,7 +55,6 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "oracle-main",
           "nixpkgs"
         ]
       },
@@ -127,33 +125,18 @@
         "type": "github"
       }
     },
-    "oracle-main": {
+    "root": {
       "inputs": {
         "glaumar_repo": "glaumar_repo",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-xr": "nixpkgs-xr",
         "sops-nix": "sops-nix"
-      },
-      "locked": {
-        "path": "./hosts/oracle-main",
-        "type": "path"
-      },
-      "original": {
-        "path": "./hosts/oracle-main",
-        "type": "path"
-      },
-      "parent": []
-    },
-    "root": {
-      "inputs": {
-        "oracle-main": "oracle-main"
       }
     },
     "sops-nix": {
       "inputs": {
         "nixpkgs": [
-          "oracle-main",
           "nixpkgs"
         ]
       },
@@ -189,7 +172,6 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "oracle-main",
           "nixpkgs-xr",
           "nixpkgs"
         ]

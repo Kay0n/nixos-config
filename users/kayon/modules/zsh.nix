@@ -5,7 +5,7 @@
     
     enable = true;
     
-    initExtra = ''
+    initContent = ''
       bindkey '\t' autosuggest-accept
       ZSH_AUTOSUGGEST_STRATEGY=(completion history)
       unsetopt beep
@@ -21,6 +21,7 @@
       clip = "xclip -r -selection clipboard";
       rs = "rsync -avz --info=progress2";
       nixe = "code /home/kayon/.nixos-config & disown; exit";
+      hypre = "code /home/kayon/.config/hypr/hyprland.conf & disown; exit";
     };  
     
     autosuggestion.enable = true;

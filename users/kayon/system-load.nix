@@ -35,13 +35,13 @@
   programs.zsh.enable = true;
 
   # secrets management: path = /run/secrets/<secret>
-  sops = {
-    defaultSopsFile = ../../secrets/secrets.yaml;
-    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" "/home/kayon/.ssh/id_ed25519" ];
-    secrets = {
-      cloudflare-token = {};
-    };
-  };
+  #sops = {
+  #  defaultSopsFile = ../../secrets/secrets.yaml;
+  #  age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" "/home/kayon/.ssh/id_ed25519" ];
+  #  secrets = {
+  #    cloudflare-token = {};
+  #  };
+  #};
 
 
 

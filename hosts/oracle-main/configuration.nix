@@ -4,16 +4,20 @@
 
   networking.hostName = "oracle-main";
 
+
   imports = [
     ../../users/kayon/system-load.nix
     ../../users/share/system-load.nix
     ../../modules/common.nix
     ../../modules/java.nix
     # ../../modules/dotnet.nix
-    ../../modules/nginx.nix
+    # ../../modules/nginx.nix # switch to caddy
+    ../../modules/caddy.nix
     ../../modules/syncthing.nix
+    ../../modules/xrdp.nix
   ];
   
+
 
   # user specific settings   
   home-manager.users.kayon = {
@@ -27,11 +31,33 @@
     home.packages = with pkgs; [
     ];
   };
-  
+
+
 
   environment.systemPackages = with pkgs; [
     vscode
   ];
+
+
+
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers.guacamole = {
+      image = "jwetzell/guacamole:1.5.5";
+      ports = [ "8080:8080" ];
+      volumes = [
+        "/home/kayon/guac:/config"  # replace with your actual path
+      ];
+      environment = {
+        EXTENSIONS = "auth-totp";
+      };
+      extraOptions = [
+        "--network=host"
+      ];
+    };
+  };
+
+
 
   programs.zsh.enable = true;
 
@@ -41,12 +67,21 @@
   #   openFirewall = true; # UDP 41641
   # };
 
+  nixpkgs.overlays = [
+  ];
+
+
+
   programs.nix-ld.enable = true;
+
+
 
   services.openssh = {
     enable = true;
     settings.GatewayPorts = "yes";
   };
+
+
 
   virtualisation.docker.enable = true;
 
@@ -69,9 +104,16 @@
   # };
   
 
-  networking.firewall.allowedTCPPorts = [ 443 80 50000 50001 50002 55551 55552 55553 22 8083 8080 ];
 
-
+  networking.firewall.allowedTCPPorts = [ 
+    443 80 # http/s
+    25565 50000 50001 50002 # mc
+    55551 55552 55553 # share
+    22 # ssh
+    8083 8085 # calibre web autopmated
+    8080 # xrdp?
+    # 5900 6080 # x11vnc
+  ];
 
 
 }

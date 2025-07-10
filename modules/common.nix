@@ -1,10 +1,10 @@
 { pkgs, inputs, ... }:
 {
   
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-    inputs.home-manager.nixosModules.home-manager
-  ];
+  # imports = [
+  #   inputs.sops-nix.nixosModules.sops
+  #   inputs.home-manager.nixosModules.home-manager
+  # ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

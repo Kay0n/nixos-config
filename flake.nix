@@ -1,63 +1,19 @@
 {
-  description = "Kayon's NixOS Config";
+  description = "Kayon's NixOS Configurations - Root Flake";
 
-  # Define input flakes that this flake will use
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    glaumar_repo = {
-      url = "github:glaumar/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+    # jdy-laptop.url = "path:./hosts/jdy-laptop";
+    # mv-church.url = "path:./hosts/mv-church";
+    oracle-main.url = "path:./hosts/oracle-main";
+    # jdy-desktop.url = "path:./hosts/jdy-desktop";
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... } @ inputs: {
+  outputs = { self, ... }@inputs: {
     nixosConfigurations = {
-      jdy-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/jdy-laptop
-        ];
-      };
-      mv-church = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/mv-church
-        ];
-      };
-      oracle-main = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/oracle-main
-        ];
-      };
-      jdy-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/jdy-desktop
-        ];
-      };
+      # jdy-laptop = inputs.jdy-laptop.nixosConfigurations.jdy-laptop;
+      # mv-church = inputs.mv-church.nixosConfigurations.mv-church;
+      oracle-main = inputs.oracle-main.nixosConfigurations.oracle-main;
+      # jdy-desktop = inputs.jdy-desktop.nixosConfigurations.jdy-desktop;
     };
   };
 }
-
-
-# === Nixos Anywhere on Oracle ===
-# nix run github:nix-community/nixos-anywhere -- --generate-hardware-config nixos-generate-config ./hardware-configuration.nix --flake .#oracle-main --target-host root@refract.online
-#
-# === Remote rebuild ===
-# sudo nixos-rebuild switch --flake .#oracle-main --impure --target-host kayon@refract.online --use-remote-sudo
-# works?
-# sudo nixos-rebuild switch --flake .#oracle-main --impure --build-host kayon@refract.online --target-host kayon@refract.online --use-remote-sudo
