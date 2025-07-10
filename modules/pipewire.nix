@@ -15,6 +15,8 @@
   environment.systemPackages = with pkgs; [
     # pavucontrol
     # pulseaudio
+    # alsa-utils
+    # alsa-tools
     # qpwgraph
   ];
 

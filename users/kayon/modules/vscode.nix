@@ -28,9 +28,11 @@
       ms-python.vscode-pylance
 
       # === misc ===
-      mkhl.direnv
+      rust-lang.rust-analyzer
+      # mkhl.direnv
+
       # saoudrizwan.claude-dev # cline
-      svelte.svelte-vscode
+      # svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "claude-dev";

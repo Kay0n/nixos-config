@@ -2,7 +2,7 @@
 {
 
   # load user profile
-  users.users.share = {
+  users.users.share = { # remember to set password with `sudo passwd share`
     isNormalUser = true;
     description = "share user for ssh tunneling";
     extraGroups = [ "networkmanager" "wheel" ];

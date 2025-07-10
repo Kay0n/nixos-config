@@ -16,17 +16,25 @@
 
   services.gnome.core-utilities.enable = false;
 
-  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-music nixos-render-docs pantheon.epiphany ];
+  environment.gnome.excludePackages = with pkgs; [ 
+    gnome-tour 
+    gnome-music 
+    nixos-render-docs 
+    pantheon.epiphany 
+  ];
 
   environment.systemPackages = with pkgs; [
     file-roller # archive manager
     nautilus # file manager  services.xserver.
     kgx # console
+    alacritty # alt console
     gnome-text-editor
     gnome-tweaks
     gnome-disk-utility
     loupe
-    spice-gtk
+    gnomeExtensions.paperwm
+    gnomeExtensions.forge
+    gnomeExtensions.pop-shell
   ];
 
 }

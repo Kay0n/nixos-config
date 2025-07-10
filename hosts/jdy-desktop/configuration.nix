@@ -7,13 +7,17 @@
   };
 
 
+
   imports = [
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
     ../../modules/pipewire.nix
-    ../../modules/gnome.nix
+    # ../../modules/gnome.nix
     ../../modules/java.nix
     ../../modules/syncthing.nix
+    ../../modules/hyprland
+    # ../../modules/cosmic
+
     # ../../modules/dotnet.nix
     
   ];
@@ -26,6 +30,8 @@
     inputs.nixpkgs-xr.overlays.default
   ];
 
+  
+  home-manager.backupFileExtension = "backup";
 
   # user specific settings   
   home-manager.users.kayon = {
@@ -116,8 +122,8 @@
 
 
   # # attempt to get wlx-overlay-s input working
-  boot.kernelModules = [ "uinput" ];
-  hardware.uinput.enable = true;
+  # boot.kernelModules = [ "uinput" ];
+  # hardware.uinput.enable = true;
   
 
   environment.systemPackages = with pkgs; [
@@ -127,8 +133,8 @@
     gparted
     vscode-fhs
     clinfo
-    glaumar_repo.qrookie
-    wlx-overlay-s
+    glaumar_repo.qrookie # QRookie bin
+    # wlx-overlay-s
     # monado-vulkan-layers
     # opencomposite
 
@@ -148,14 +154,6 @@
 
   programs.zsh.enable = true;
 
-  # # Dont know if this is neccesary
-  # systemd.extraConfig = ''
-  #   DefaultTimeoutStopSec=3s
-  # '';
-  # systemd.user.extraConfig = ''
-  #   DefaultTimeoutStopSec=3s
-  # '';
-
   # # run appimages with the appigame-run interpreter
   # programs.appimage.binfmt = true;
   
@@ -168,7 +166,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest; 
 
 
-  networking.firewall.allowedTCPPorts = [ 9757 25565 8080 ];
+  networking.firewall.allowedTCPPorts = [ 9757 25565 50003 8080 ];
   networking.firewall.allowedUDPPorts = [ 5353 9757 ];
 
 }

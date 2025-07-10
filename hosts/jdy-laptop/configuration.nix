@@ -29,12 +29,12 @@
       vesktop # discord client
       # arrpc # discord rich presence server
       # steam
-      calibre
+      # calibre
       prismlauncher
       # protonup-qt
-      qbittorrent
-      lutris
-      qdirstat
+      # qbittorrent
+      # lutris
+      # qdirstat
       # wineWowPackages.stable
       # winetricks
       onlyoffice-bin
@@ -58,9 +58,9 @@
     # blender
     # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
     firefox
-    vlc
+    # vlc
     # appimage-run
-    gparted
+    # gparted
     exfatprogs # exfat drivers
     ntfs3g # ntfs driver
     intel-gpu-tools
