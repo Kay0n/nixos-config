@@ -22,7 +22,7 @@ let
 
       # resolve with nix-locate
       if [[ -z "$pkg" ]]; then
-        pkg=$(nix-locate --minimal --type x --top-level --whole-name "bin/$cmd" | head -n1)
+        pkg=$(nix-locate --minimal --type x --whole-name "bin/$cmd" | head -n1)
         if [[ -n "$pkg" ]]; then
           echo "$cmd $pkg" >> "$NIX_CMD_CACHE"
         fi

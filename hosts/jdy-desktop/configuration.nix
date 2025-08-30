@@ -171,12 +171,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest; 
 
-  boot.kernel.sysctl = {
-    # Allow perf to be used by all users. Set to 1 to restrict to root.
-    "kernel.perf_event_paranoid" = -1; 
-    # Allow kernel symbols to be exposed for more detailed profiling.
-    "kernel.kptr_restrict" = 0; 
-  };
 
   # # for audio jacks to work
   # boot.extraModprobeConfig = ''
