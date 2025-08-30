@@ -1,6 +1,10 @@
 {
   description = "Kayon's NixOS Configurations - Root Flake";
 
+
+
+  # update inputs with:
+  # `nix flake update --update-input <input-name>`
   inputs = {
     jdy-laptop.url = "path:./hosts/jdy-laptop";
     mv-church.url = "path:./hosts/mv-church";
