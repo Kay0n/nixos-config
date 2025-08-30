@@ -37,7 +37,7 @@
   home-manager.users.kayon = {
     imports = [
       ../../users/kayon
-      # ../../users/kayon/modules/vscode.nix
+      ../../users/kayon/modules/vscode.nix
       ../../users/kayon/modules/gnome-settings.nix
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
@@ -93,32 +93,33 @@
 
 
   # TODO: fix config not being applied
-  services.wivrn = {
-    enable = true;
-    package = pkgs.wivrn;
-    openFirewall = true;
-    autoStart = true;
-    defaultRuntime = true;
-    config = {
-      enable = true;
-      json = {
-        scale = 1.0;
-        # 100 Mb/s
-        bitrate = 100000000;
-        encoders = [
-          {
-            encoder = "vaapi";
-            codec = "av1";
-            width = 1.0;
-            height = 1.0;
-            offset_x = 0.0;
-            offset_y = 0.0;
-          }
-        ];
-        openvr-compat-path = pkgs.xrizer;
-      };
-    };
-  };
+  # build fails 28-8-25
+  # services.wivrn = {
+  #   enable = true;
+  #   package = pkgs.wivrn;
+  #   openFirewall = true;
+  #   autoStart = true;
+  #   defaultRuntime = true;
+  #   config = {
+  #     enable = true;
+  #     json = {
+  #       scale = 1.0;
+  #       # 100 Mb/s
+  #       bitrate = 100000000;
+  #       encoders = [
+  #         {
+  #           encoder = "vaapi";
+  #           codec = "av1";
+  #           width = 1.0;
+  #           height = 1.0;
+  #           offset_x = 0.0;
+  #           offset_y = 0.0;
+  #         }
+  #       ];
+  #       openvr-compat-path = pkgs.xrizer;
+  #     };
+  #   };
+  # };
 
 
   # # attempt to get wlx-overlay-s input working
@@ -131,9 +132,14 @@
     firefox
     vlc
     gparted
-    vscode-fhs
     clinfo
     glaumar_repo.qrookie # QRookie bin
+
+    # music
+    ardour # daw
+    sfizz # sfz interface
+    nettools
+
     # wlx-overlay-s
     # monado-vulkan-layers
     # opencomposite
@@ -164,6 +170,18 @@
 
 
   boot.kernelPackages = pkgs.linuxPackages_latest; 
+
+  boot.kernel.sysctl = {
+    # Allow perf to be used by all users. Set to 1 to restrict to root.
+    "kernel.perf_event_paranoid" = -1; 
+    # Allow kernel symbols to be exposed for more detailed profiling.
+    "kernel.kptr_restrict" = 0; 
+  };
+
+  # # for audio jacks to work
+  # boot.extraModprobeConfig = ''
+  #   options snd-hda-intel model=auto
+  # '';
 
 
   networking.firewall.allowedTCPPorts = [ 9757 25565 50003 8080 ];

@@ -26,6 +26,7 @@
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
+      ../../users/kayon/modules/vscode.nix
     ];
 
     home.packages = with pkgs; [
@@ -35,25 +36,18 @@
 
 
   environment.systemPackages = with pkgs; [
-    vscode
+    firefox
+    # onlyoffice-bin
+    libreoffice-qt6-fresh
   ];
 
 
 
   virtualisation.oci-containers = {
     backend = "docker";
-    containers.guacamole = {
-      image = "jwetzell/guacamole:1.5.5";
-      ports = [ "8080:8080" ];
-      volumes = [
-        "/home/kayon/guac:/config"  # replace with your actual path
-      ];
-      environment = {
-        EXTENSIONS = "auth-totp";
-      };
-      extraOptions = [
-        "--network=host"
-      ];
+    containers = {
+      guacamole = import ../../containers/guacamole.nix;
+      calibre-web-automated = import ../../containers/calibre-web-automated.nix;
     };
   };
 

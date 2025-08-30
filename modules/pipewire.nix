@@ -13,7 +13,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # pavucontrol
+    pavucontrol
     # pulseaudio
     # alsa-utils
     # alsa-tools

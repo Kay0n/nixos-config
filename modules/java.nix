@@ -12,11 +12,12 @@
   {
     programs.java = {
       enable = true;
-      package = pkgs.jdk21;
+      package = pkgs.jdk;
     };
 
     environment.systemPackages = with pkgs; [
       java8 
       java17
+      gradle
     ];
   }

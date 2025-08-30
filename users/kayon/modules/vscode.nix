@@ -3,10 +3,21 @@
 
   programs.vscode = {
     enable = true;
-    enableUpdateCheck = true;
-    enableExtensionUpdateCheck = true;
-    mutableExtensionsDir = false;
-    extensions = with pkgs.vscode-extensions; [
+    # enableUpdateCheck = false;
+    # enableExtensionUpdateCheck = false;
+    # mutableExtensionsDir = true;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+      rustup 
+      zlib 
+      openssl.dev 
+      pkg-config 
+    ]);
+
+    # profiles.default.userSettings = {
+    #   "option.name" = "value";
+    # }
+
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       # === base ===
       ms-vscode-remote.remote-ssh
       visualstudioexptteam.vscodeintellicode
@@ -21,10 +32,10 @@
 
       # === nix === 
       jnoortheen.nix-ide # syntax and language support
-      # arrterian.nix-env-selector
+      arrterian.nix-env-selector
       
       # === python ===
-      ms-python.python
+      # ms-python.python # build fail as of 28-8-25
       ms-python.vscode-pylance
 
       # === misc ===
@@ -34,17 +45,17 @@
       # saoudrizwan.claude-dev # cline
       # svelte.svelte-vscode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      # {
+      #   name = "remote-server"; # code tunnels
+      #   publisher = "ms-vscode";
+      #   version = "1.6.2025010809";
+      #   sha256 = "sha256-m9P8WFb3qYGF/oL4f6kHQSwd+YCc4vsx1XFhkiQE1B8=";
+      # }
       {
-        name = "claude-dev";
-        publisher = "saoudrizwan";
-        version = "3.8.3";
-        sha256 = "sha256-0FAxQ67AKcSbCp8vQr2KUOIRw8LEQ3TQyJkfJwtmdoY=";
-      }
-      {
-        name = "remote-server";
-        publisher = "ms-vscode";
-        version = "1.6.2025010809";
-        sha256 = "sha256-m9P8WFb3qYGF/oL4f6kHQSwd+YCc4vsx1XFhkiQE1B8=";
+        name = "theme-vsmonokai";
+        publisher = "lunadevel";
+        version = "0.2.0";
+        sha256 = "sha256-yRMrKsqmSQqnyhm/3079tw9HKVwgBmiBXi262YBoAoI=";
       }
       # {
       #   name = "godot-tools";

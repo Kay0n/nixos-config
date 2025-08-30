@@ -2,7 +2,7 @@
 {
 
   nixpkgs.overlays = [
-    inputs.hyprpanel.overlay
+    # inputs.hyprpanel.overlay
   ];
 
   programs.hyprland = {
@@ -60,7 +60,7 @@
     wl-clipboard
     xorg.xrdb # proper xwayland scaling - see ~/.Xresources
     grimblast # screenshots
-    libsForQt5.xwaylandvideobridge # run on start, discord screen share
+    kdePackages.xwaylandvideobridge # run on start, discord screen share
     udiskie # auto mount external drives
 
 
