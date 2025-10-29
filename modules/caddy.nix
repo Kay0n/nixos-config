@@ -16,19 +16,26 @@
         '';
       };
 
-      "refract.online" = {
-        extraConfig = ''
-          root * /var/www/
-          file_server {
-            browse
-          }
-        '';
-      };
+      # "refract.online" = {
+      #   extraConfig = ''
+      #     root * /var/www/
+      #     file_server {
+      #       browse
+      #     }
+      #   '';
+      # };
 
       "rdp.refract.online" = {
         extraConfig = ''
           handle {
             reverse_proxy 127.0.0.1:6938
+          }
+        '';
+      };  
+      "files.refract.online" = {
+        extraConfig = ''
+          handle {
+            reverse_proxy 127.0.0.1:3923
           }
         '';
       };  

@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     glaumar_repo = {
       url = "github:glaumar/nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +28,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         home-manager.nixosModules.home-manager 
+        sops-nix.nixosModules.sops
         ./configuration.nix 
         ./hardware-configuration.nix
       ];

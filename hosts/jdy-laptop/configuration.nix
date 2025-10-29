@@ -10,6 +10,7 @@
     ../../modules/gnome.nix
     ../../modules/java.nix
     ../../modules/syncthing.nix
+    ../../modules/firefox.nix
   ];
   
 
@@ -57,7 +58,6 @@
   environment.systemPackages = with pkgs; [
     # blender
     # (blender.override {cudaSupport = true;} ) # enable cuda, build from source
-    firefox
     # vlc
     # appimage-run
     # gparted

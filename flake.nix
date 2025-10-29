@@ -1,5 +1,5 @@
 {
-  description = "Kayon's NixOS Configurations - Root Flake";
+  description = "Kayon's NixOS Root Flake";
 
 
 

@@ -12,14 +12,11 @@
     ../../modules/common.nix
     ../../users/kayon/system-load.nix
     ../../modules/pipewire.nix
-    # ../../modules/gnome.nix
     ../../modules/java.nix
     ../../modules/syncthing.nix
     ../../modules/hyprland
-    # ../../modules/cosmic
-
-    # ../../modules/dotnet.nix
-    
+    ../../modules/firefox.nix
+    ../../secrets/sops.nix
   ];
 
 
@@ -28,6 +25,16 @@
       glaumar_repo = inputs.glaumar_repo.packages."${prev.system}";
     })
     inputs.nixpkgs-xr.overlays.default
+  ];
+
+  # fixes for gpu crashes under load - effectiveness tbd
+  # prevent amdgup crashes (overvolt?) see https://discourse.nixos.org/t/yet-another-gcvm-l2-protection-fault-status-problem/65420/10
+  boot.kernelParams = [ 
+    "amdgpu.ppfeaturemask=0xf7fff" # disable "PP_GFXOFF_MASK" dynamic graphics engine     
+    # "amdgpu.aspm=0" # disable pcie active state power management
+    # "amdgpu.bapm=0" # disable bidirectional application CPU/GPU TDP power management
+    # "amdgpu.runpm=0" # disable runtime power management
+    # "pcie_aspm=off" # disable active state power management
   ];
 
   
@@ -46,6 +53,19 @@
     ];
 
     services.arrpc.enable = true;
+
+
+
+    # # for roblox
+    # services.flatpak = {
+    #   enable = true;
+    #   packages = [
+    #     "com.obsproject.Studio"
+    #     "im.riot.Riot"
+    #   ];
+    # };
+
+
 
     home.packages = with pkgs; [
       vesktop # discord client
@@ -129,7 +149,6 @@
 
   environment.systemPackages = with pkgs; [
     blender
-    firefox
     vlc
     gparted
     clinfo
@@ -138,7 +157,10 @@
     # music
     ardour # daw
     sfizz # sfz interface
-    nettools
+    nettools # for ifconfig
+
+    hub
+    godot
 
     # wlx-overlay-s
     # monado-vulkan-layers

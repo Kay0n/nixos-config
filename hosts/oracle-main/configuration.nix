@@ -15,6 +15,9 @@
     ../../modules/caddy.nix
     ../../modules/syncthing.nix
     ../../modules/xrdp.nix
+    ../../modules/firefox.nix
+    ../../modules/copyparty.nix
+    ../../secrets/sops.nix
   ];
   
 
@@ -36,7 +39,6 @@
 
 
   environment.systemPackages = with pkgs; [
-    firefox
     # onlyoffice-bin
     libreoffice-qt6-fresh
   ];

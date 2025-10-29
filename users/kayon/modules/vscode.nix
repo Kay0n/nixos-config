@@ -37,6 +37,7 @@
       # === python ===
       # ms-python.python # build fail as of 28-8-25
       ms-python.vscode-pylance
+      ms-python.debugpy
 
       # === misc ===
       rust-lang.rust-analyzer

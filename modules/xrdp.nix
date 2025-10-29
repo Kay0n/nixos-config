@@ -1,9 +1,12 @@
 { pkgs, config, ... }:
 {
   services.xserver.enable = true;
-  # services.displayManager.sddm.enable = true; 
+  services.displayManager.sddm.enable = false;
+  services.xserver.displayManager.startx.enable = true; 
   services.desktopManager.plasma6.enable = true;
-
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "kayon";
+  
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
   services.xrdp.openFirewall = true;

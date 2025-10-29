@@ -51,7 +51,7 @@
     xdg-desktop-portal-hyprland # general DE stuff (file picker, screen sharing)
     xdg-desktop-portal-gtk # TODO: do I need?
     hyprpolkitagent # auth daemon
-    wofi # launcher
+    # wofi # launcher
     walker
     hyprlock # TODO: need? activated in security
     hypridle # idle
@@ -72,8 +72,14 @@
     gnome-text-editor
     gnome-disk-utility
     file-roller # file extraction
+
+    udiskie # automounter frontend - mneeds udisks2 sservice
     # blueman TODO: work?
   ];
+
+
+  services.udisks2.enable = true;
+
 
 
 
