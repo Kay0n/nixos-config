@@ -17,6 +17,7 @@
       # no-reload = true;
       # using 'false' will do nothing and omit the value when generating a config
       ignored-flag = false;
+      shr = "/share";
     };
 
     accounts = {
@@ -27,13 +28,21 @@
 
     volumes = {
       "/" = {
-        # share the contents of "/srv/copyparty"
         path = "/home/kayon/www";
-        # see `copyparty --help-accounts` for available options
         access = {
-          # everyone gets read-access, but
           r = "*";
-          # users "ed" and "k" get read-write
+          "rwmda." = [ "kayon" ];
+        };
+      };
+      "/private" = {
+        path = "/home/kayon/www/private";
+        access = {
+          "rwmda." = [ "kayon" ];
+        };
+      };
+      "/obsidian" = {
+        path = "/home/kayon/congealed-magma";
+        access = {
           "rwmda." = [ "kayon" ];
         };
       };
