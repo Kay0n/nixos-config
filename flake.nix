@@ -5,6 +5,9 @@
 
   # update inputs with:
   # `nix flake update --update-input <input-name>`
+
+  # update all with 
+  # `nix flake update`
   inputs = {
     jdy-laptop.url = "path:./hosts/jdy-laptop";
     mv-church.url = "path:./hosts/mv-church";

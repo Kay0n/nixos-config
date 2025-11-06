@@ -10,14 +10,15 @@
     ../../users/share/system-load.nix
     ../../modules/common.nix
     ../../modules/java.nix
-    # ../../modules/dotnet.nix
-    # ../../modules/nginx.nix # switch to caddy
-    ../../modules/caddy.nix
     ../../modules/syncthing.nix
-    ../../modules/xrdp.nix
     ../../modules/firefox.nix
-    ../../modules/copyparty.nix
     ../../secrets/sops.nix
+
+    # host specific imports
+    ./modules/copyparty.nix
+    ./modules/cwa.nix
+    ./modules/caddy.nix
+    ./modules/xrdp.nix
   ];
   
 
@@ -49,7 +50,7 @@
     backend = "docker";
     containers = {
       guacamole = import ../../containers/guacamole.nix;
-      calibre-web-automated = import ../../containers/calibre-web-automated.nix;
+      # calibre-web-automated = import ../../containers/calibre-web-automated.nix;
     };
   };
 
