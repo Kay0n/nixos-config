@@ -19,6 +19,7 @@
     ./modules/cwa.nix
     ./modules/caddy.nix
     ./modules/xrdp.nix
+    ./modules/guacamole.nix
   ];
   
 
@@ -46,13 +47,7 @@
 
 
 
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers = {
-      guacamole = import ../../containers/guacamole.nix;
-      # calibre-web-automated = import ../../containers/calibre-web-automated.nix;
-    };
-  };
+  virtualisation.oci-containers.backend = "docker";
 
 
 
