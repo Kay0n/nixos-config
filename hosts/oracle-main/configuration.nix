@@ -20,6 +20,7 @@
     ./modules/caddy.nix
     ./modules/xrdp.nix
     ./modules/guacamole.nix
+    ./modules/rclone.nix
   ];
   
 

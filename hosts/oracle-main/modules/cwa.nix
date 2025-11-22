@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   virtualisation.oci-containers.containers = {
     calibre-web-automated = {
@@ -7,7 +7,11 @@
         "PUID" = "1000";
         "PGID" = "1000";
         "TZ" = "Australia/Adelaide";
+
       };
+      environmentFiles = [
+        config.sops.secrets.hardcover_api_key.path
+      ];
       volumes = [
         "/home/kayon/book-automation/cwa/config:/config"
         "/home/kayon/book-automation/cwa/ingest:/cwa-book-ingest"
