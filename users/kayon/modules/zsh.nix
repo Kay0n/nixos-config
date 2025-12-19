@@ -80,6 +80,7 @@ in
       rs = "rsync -avz --info=progress2";
       nixe = "code /home/kayon/.nixos-config & disown; exit";
       hypre = "code /home/kayon/.config/hypr/hyprland.conf & disown; exit";
+      # winreboot = "${pkgs.efibootmgr} -n 0003 && sudo reboot";
     };  
     
     autosuggestion.enable = true;

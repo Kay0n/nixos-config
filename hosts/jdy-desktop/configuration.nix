@@ -37,6 +37,10 @@
     # "pcie_aspm=off" # disable active state power management
   ];
 
+  # xbox controller driver
+  hardware.xone.enable = true;
+
+
   
   home-manager.backupFileExtension = "backup";
 
@@ -78,20 +82,28 @@
       lutris
       qdirstat 
       wineWowPackages.stable
-      onlyoffice-bin
+      onlyoffice-desktopeditors
       nil # nix language server
 
       # quickemu
       owmods-cli
-      # rustdesk-flutter
+      rustdesk-flutter
       obsidian
       # nodejs
       # godot_4
       r2modman
       discord
       nodejs
+      nmap
+      olympus
       # sqlite
       # rclone
+
+      (pkgs.writeShellScriptBin "winreboot" ''
+        sudo ${pkgs.efibootmgr}/bin/efibootmgr -n 0003
+        sudo reboot
+      '')
+    
     ];
   };
 
@@ -110,6 +122,14 @@
       };
     };
   };
+
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  #   alsa-lib
+  #   openssl
+  #   libgcc
+  # ];
+
 
 
   # TODO: fix config not being applied
@@ -152,7 +172,7 @@
     vlc
     gparted
     clinfo
-    glaumar_repo.qrookie # QRookie bin
+    # glaumar_repo.qrookie # QRookie bin, not working currently
 
     # music
     ardour # daw

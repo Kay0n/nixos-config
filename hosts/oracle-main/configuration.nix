@@ -21,6 +21,7 @@
     ./modules/xrdp.nix
     ./modules/guacamole.nix
     ./modules/rclone.nix
+    ./modules/celestenet.nix
   ];
   
 
@@ -103,8 +104,8 @@
     25565 50000 50001 50002 # mc
     55551 55552 55553 # share
     22 # ssh
-    8083 8085 # calibre web autopmated
-    8080 # xrdp?
+    # 8083 8085 # calibre web automated
+    # 8080 # xrdp?
     # 5900 6080 # x11vnc
   ];
 

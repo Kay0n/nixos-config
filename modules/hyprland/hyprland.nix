@@ -10,7 +10,17 @@
     withUWSM = true;
   };
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    # powerOnBoot = true;
+    # settings = {
+    #   General = {
+    #     Experimental = true;
+    #   };
+    # };
+  };
+
+  services.gvfs.enable = true;
 
   services.displayManager = {
     sddm = {
@@ -60,7 +70,7 @@
     wl-clipboard
     xorg.xrdb # proper xwayland scaling - see ~/.Xresources
     grimblast # screenshots
-    kdePackages.xwaylandvideobridge # run on start, discord screen share
+    # kdePackages.xwaylandvideobridge # run on start, discord screen share
     udiskie # auto mount external drives
 
 
