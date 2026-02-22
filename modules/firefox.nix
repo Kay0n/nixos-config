@@ -22,6 +22,7 @@
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
+        PasswordManagerEnabled = false;
         EnableTrackingProtection = {
           Value= true;
           Locked = true;

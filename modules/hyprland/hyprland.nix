@@ -63,6 +63,8 @@
     hyprpolkitagent # auth daemon
     # wofi # launcher
     walker
+    elephant # walker dep
+
     hyprlock # TODO: need? activated in security
     hypridle # idle
     hyprpanel

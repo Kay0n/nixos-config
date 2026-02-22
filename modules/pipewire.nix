@@ -49,15 +49,15 @@
 # pw-link Speakers:out alsa_output.pci-0000_15_00.6.analog-stereo:0
   
 
-  systemd.services.disable-auto-mute = {
-    description = "Disable auto-mute on Realtek sound card";
-    after = [ "sound.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 1 sset 'Auto-Mute Mode' Disabled";
-    };
-    wantedBy = [ "multi-user.target" ];
-  };
+  # systemd.services.disable-auto-mute = {
+  #   description = "Disable auto-mute on Realtek sound card";
+  #   after = [ "sound.target" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 1 sset 'Auto-Mute Mode' Disabled";
+  #   };
+  #   wantedBy = [ "multi-user.target" ];
+  # };
 
   boot.extraModprobeConfig = ''
     options snd_hda_intel model=alc897
@@ -68,7 +68,7 @@
     # pulseaudio
     # alsa-utils
     # alsa-tools
-    qpwgraph
+    # qpwgraph
   ];
 
   virtualisation.spiceUSBRedirection.enable = true;

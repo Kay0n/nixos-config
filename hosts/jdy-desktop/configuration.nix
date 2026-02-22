@@ -14,42 +14,51 @@
     ../../modules/pipewire.nix
     ../../modules/java.nix
     ../../modules/syncthing.nix
-    ../../modules/hyprland
+    ../../modules/niri/niri.nix
     ../../modules/firefox.nix
     ../../secrets/sops.nix
   ];
 
 
   nixpkgs.overlays = [
-    (final: prev: {
-      glaumar_repo = inputs.glaumar_repo.packages."${prev.system}";
-    })
     inputs.nixpkgs-xr.overlays.default
   ];
 
   # fixes for gpu crashes under load - effectiveness tbd
   # prevent amdgup crashes (overvolt?) see https://discourse.nixos.org/t/yet-another-gcvm-l2-protection-fault-status-problem/65420/10
-  boot.kernelParams = [ 
-    "amdgpu.ppfeaturemask=0xf7fff" # disable "PP_GFXOFF_MASK" dynamic graphics engine     
-    # "amdgpu.aspm=0" # disable pcie active state power management
-    # "amdgpu.bapm=0" # disable bidirectional application CPU/GPU TDP power management
-    # "amdgpu.runpm=0" # disable runtime power management
-    # "pcie_aspm=off" # disable active state power management
-  ];
+  # boot.kernelParams = [ 
+  #   "amdgpu.ppfeaturemask=0xf7fff" # disable "PP_GFXOFF_MASK" dynamic graphics engine     
+  #   # "amdgpu.aspm=0" # disable pcie active state power management
+  #   # "amdgpu.bapm=0" # disable bidirectional application CPU/GPU TDP power management
+  #   # "amdgpu.runpm=0" # disable runtime power management
+  #   # "pcie_aspm=off" # disable active state power management
+  # ];
 
   # xbox controller driver
-  hardware.xone.enable = true;
+  # hardware.xone.enable = true;
 
+  services.flatpak = {
+    enable = true;
+    packages = [
+      rec {
+        appId = "com.hypixel.HytaleLauncher";
+        sha256 = "sha256-iBYZTbm82X+CbF9v/7pwOxxxfK/bwlBValCAVC5xgV8=";
+        bundle = "${pkgs.fetchurl {
+          url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+          inherit sha256;
+        }}";
+      }
+    ];
+  };
 
   
-  home-manager.backupFileExtension = "backup";
+  home-manager.backupFileExtension = "backup"; # needed?
 
   # user specific settings   
   home-manager.users.kayon = {
     imports = [
       ../../users/kayon
       ../../users/kayon/modules/vscode.nix
-      ../../users/kayon/modules/gnome-settings.nix
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
@@ -60,17 +69,6 @@
 
 
 
-    # # for roblox
-    # services.flatpak = {
-    #   enable = true;
-    #   packages = [
-    #     "com.obsproject.Studio"
-    #     "im.riot.Riot"
-    #   ];
-    # };
-
-
-
     home.packages = with pkgs; [
       vesktop # discord client
       # arrpc # rich presence server
@@ -78,27 +76,28 @@
       calibre
       prismlauncher
       protonup-qt
-      qbittorrent
-      lutris
+      # qbittorrent
+      # lutris
       qdirstat 
-      wineWowPackages.stable
+      wineWow64Packages.stable
       onlyoffice-desktopeditors
       nil # nix language server
 
       # quickemu
-      owmods-cli
-      rustdesk-flutter
+      # owmods-cli
+      # rustdesk-flutter
       obsidian
       # nodejs
       # godot_4
-      r2modman
-      discord
-      nodejs
-      nmap
-      olympus
+      # r2modman
+      # discord
+      # nodejs
+      # nmap
+      # olympus
+      heroic
       # sqlite
       # rclone
-
+      
       (pkgs.writeShellScriptBin "winreboot" ''
         sudo ${pkgs.efibootmgr}/bin/efibootmgr -n 0003
         sudo reboot
@@ -168,25 +167,26 @@
   
 
   environment.systemPackages = with pkgs; [
-    blender
-    vlc
-    gparted
-    clinfo
+    # inputs.glaumar_repo.packages.${pkgs.system}.qrookie
+    # glaumar_repo.qrookie
+    # blender
+    # vlc
+    # gparted
     # glaumar_repo.qrookie # QRookie bin, not working currently
 
     # music
-    ardour # daw
-    sfizz # sfz interface
-    nettools # for ifconfig
+    # ardour # daw
+    # sfizz # sfz interface
+    # nettools # for ifconfig
 
-    hub
-    godot
+    # hub
+    # godot
 
     # wlx-overlay-s
     # monado-vulkan-layers
     # opencomposite
 
-    android-tools
+    # android-tools
     # exfatprogs # exfat drivers
     # ntfs3g # ntfs driver
     # gamescope
@@ -202,7 +202,7 @@
 
   programs.zsh.enable = true;
 
-  # # run appimages with the appigame-run interpreter
+  # # run appimages with the appimage-run interpreter
   # programs.appimage.binfmt = true;
   
   # # Used to setup aarch64 oracle with nixos-anywhere  
@@ -220,7 +220,7 @@
   # '';
 
 
-  networking.firewall.allowedTCPPorts = [ 9757 25565 50003 8080 ];
-  networking.firewall.allowedUDPPorts = [ 5353 9757 ];
+  networking.firewall.allowedTCPPorts = [ 9757 25565 50003 8080 27015 ];
+  networking.firewall.allowedUDPPorts = [ 5353 9757 27015 ];
 
 }

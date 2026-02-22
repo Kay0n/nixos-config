@@ -1,0 +1,203 @@
+
+
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+
+
+output "DP-2" {
+    mode "2560x1440@165.000"
+    position x=0 y=0
+    scale 1.25
+}
+
+
+
+output "HDMI-A-2" {
+    mode "1920x1080@60.000"
+    position x=-1920 y=0
+}
+
+
+workspace "a" {}
+workspace "b" {}
+workspace "c" {}
+
+workspace "d" {open-on-output "HDMI-A-2";}
+workspace "e" {open-on-output "HDMI-A-2";}
+workspace "f" {open-on-output "HDMI-A-2";}
+
+
+
+// hotkey-overlay { skip-at-startup; }
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+spawn-at-startup "udiskie"
+spawn-sh-at-startup "noctalia-shell --no-duplicate"
+spawn-sh-at-startup "noctalia-shell ipc call lockScreen toggle"
+
+
+
+
+binds {
+
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+
+    Mod+G              { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Ctrl+Space         { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Ctrl+Shift+Escape  { spawn-sh "noctalia-shell ipc call systemMonitor toggle"; }
+    Mod+I              { spawn-sh "noctalia-shell ipc call settings toggle"; }
+    Mod+L              { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+
+    Mod+T              { spawn "alacritty"; }
+    Mod+R              { spawn "firefox"; }
+    Mod+E              { spawn "nautilus"; }
+    Mod+V              { spawn "code"; }
+
+    Mod+Tab            { toggle-overview; }
+    Mod+F              { maximize-column; }
+    Mod+Shift+F        { fullscreen-window; }
+    Mod+Shift+V        { toggle-window-floating; }
+    Mod+Shift+X        { screenshot; }
+    Mod+Q repeat=false { close-window; }
+    Print              { screenshot; }
+    Ctrl+Alt+Delete    { quit; }
+    Mod+Shift+P        { power-off-monitors; }
+
+
+
+    Mod+Up                      { focus-workspace-up; }
+    Mod+Down                    { focus-workspace-down; }
+    Mod+Left                    { focus-column-left; }
+    Mod+Right                   { focus-column-right; }
+
+    Mod+W                       { focus-workspace-up; }
+    Mod+S                       { focus-workspace-down; }
+    Mod+A                       { focus-column-left; }
+    Mod+D                       { focus-column-right; }
+
+    Mod+SHift+Up                { move-workspace-up; }
+    Mod+SHift+Down              { move-workspace-down; }
+    Mod+SHift+Left              { move-workspace-to-monitor-left; }
+    Mod+SHift+Right             { move-workspace-to-monitor-right; }
+
+    Mod+SHift+W                 { move-workspace-up; }
+    Mod+SHift+S                 { move-workspace-down; }
+    Mod+SHift+A                 { move-workspace-to-monitor-left; }
+    Mod+SHift+D                 { move-workspace-to-monitor-right; }
+
+    Mod+WheelScrollDown         { focus-column-right; }
+    Mod+WheelScrollUp           { focus-column-left; }
+
+    Mod+Shift+WheelScrollUp     { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown   { focus-workspace-down; }
+
+
+
+    Mod+1           { focus-workspace 1; }
+    Mod+2           { focus-workspace 2; }
+    Mod+3           { focus-workspace 3; }
+    Mod+4           { focus-workspace 4; }
+    Mod+5           { focus-workspace 5; }
+    Mod+6           { focus-workspace 6; }
+    Mod+7           { focus-workspace 7; }
+    Mod+8           { focus-workspace 8; }
+    Mod+9           { focus-workspace 9; }
+
+    Mod+Shift+1     { move-window-to-workspace 1; }
+    Mod+Shift+2     { move-window-to-workspace 2; }
+    Mod+Shift+3     { move-window-to-workspace 3; }
+    Mod+Shift+4     { move-window-to-workspace 4; }
+    Mod+Shift+5     { move-window-to-workspace 5; }
+    Mod+Shift+6     { move-window-to-workspace 6; }
+    Mod+Shift+7     { move-window-to-workspace 7; }
+    Mod+Shift+8     { move-window-to-workspace 8; }
+    Mod+Shift+9     { move-window-to-workspace 9; }
+
+
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+}
+
+
+
+
+layout {
+    gaps 10
+
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+  
+    focus-ring {
+        width 1.5
+        active-color "#8d32ca"
+        inactive-color "#525252"
+    }
+
+    border {
+        off
+    }
+
+    shadow {
+        off
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+}
+
+
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+
+
+animations {
+    // off
+    slowdown 0.5
+}
+
+
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+
+
+
+
+
+include "./noctalia.kdl" // import theming from noctalia-shell 
+
+

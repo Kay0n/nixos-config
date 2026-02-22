@@ -19,7 +19,7 @@
 
     profiles.default.extensions = with pkgs.vscode-extensions; [
       # === base ===
-      ms-vscode-remote.remote-ssh
+      # ms-vscode-remote.remote-ssh
       visualstudioexptteam.vscodeintellicode
 
       # === java extensions ===
@@ -36,11 +36,11 @@
       
       # === python ===
       # ms-python.python # build fail as of 28-8-25
-      ms-python.vscode-pylance
-      ms-python.debugpy
+      # ms-python.vscode-pylance
+      # ms-python.debugpy
 
       # === misc ===
-      rust-lang.rust-analyzer
+      # rust-lang.rust-analyzer
       # mkhl.direnv
 
       # saoudrizwan.claude-dev # cline

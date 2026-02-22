@@ -45,6 +45,7 @@
   environment.systemPackages = with pkgs; [
     # onlyoffice-bin
     libreoffice-qt6-fresh
+    calibre
   ];
 
 
