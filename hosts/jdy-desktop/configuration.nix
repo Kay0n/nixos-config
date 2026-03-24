@@ -24,32 +24,25 @@
     inputs.nixpkgs-xr.overlays.default
   ];
 
-  # fixes for gpu crashes under load - effectiveness tbd
-  # prevent amdgup crashes (overvolt?) see https://discourse.nixos.org/t/yet-another-gcvm-l2-protection-fault-status-problem/65420/10
-  # boot.kernelParams = [ 
-  #   "amdgpu.ppfeaturemask=0xf7fff" # disable "PP_GFXOFF_MASK" dynamic graphics engine     
-  #   # "amdgpu.aspm=0" # disable pcie active state power management
-  #   # "amdgpu.bapm=0" # disable bidirectional application CPU/GPU TDP power management
-  #   # "amdgpu.runpm=0" # disable runtime power management
-  #   # "pcie_aspm=off" # disable active state power management
-  # ];
+
+  programs.nix-index-database.comma.enable = true;
 
   # xbox controller driver
   # hardware.xone.enable = true;
 
-  services.flatpak = {
-    enable = true;
-    packages = [
-      rec {
-        appId = "com.hypixel.HytaleLauncher";
-        sha256 = "sha256-iBYZTbm82X+CbF9v/7pwOxxxfK/bwlBValCAVC5xgV8=";
-        bundle = "${pkgs.fetchurl {
-          url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-          inherit sha256;
-        }}";
-      }
-    ];
-  };
+  # services.flatpak = {
+  #   enable = true;
+  #   packages = [
+  #     rec {
+  #       appId = "com.hypixel.HytaleLauncher";
+  #       sha256 = "sha256-iBYZTbm82X+CbF9v/7pwOxxxfK/bwlBValCAVC5xgV8=";
+  #       bundle = "${pkgs.fetchurl {
+  #         url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+  #         inherit sha256;
+  #       }}";
+  #     }
+  #   ];
+  # };
 
   
   home-manager.backupFileExtension = "backup"; # needed?
@@ -62,6 +55,7 @@
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
+      ../../users/kayon/modules/scripts.nix
       
     ];
 
@@ -76,10 +70,9 @@
       calibre
       prismlauncher
       protonup-qt
-      # qbittorrent
+      qbittorrent
       # lutris
       qdirstat 
-      wineWow64Packages.stable
       onlyoffice-desktopeditors
       nil # nix language server
 
@@ -122,7 +115,6 @@
     };
   };
 
-  # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   #   alsa-lib
   #   openssl
@@ -167,6 +159,7 @@
   
 
   environment.systemPackages = with pkgs; [
+    lmstudio
     # inputs.glaumar_repo.packages.${pkgs.system}.qrookie
     # glaumar_repo.qrookie
     # blender
@@ -197,16 +190,22 @@
   virtualisation.docker.enable = true;
 
 
-  programs.direnv.enable = true;
+  # programs.direnv.enable = true;
   
 
-  programs.zsh.enable = true;
 
   # # run appimages with the appimage-run interpreter
   # programs.appimage.binfmt = true;
   
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-rocm;
+  # };
+  
+
 
   networking.hostName = "jdy-desktop"; 
 
@@ -220,7 +219,13 @@
   # '';
 
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="drm", KERNEL=="card*", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="high"
+  '';
+
   networking.firewall.allowedTCPPorts = [ 9757 25565 50003 8080 27015 ];
   networking.firewall.allowedUDPPorts = [ 5353 9757 27015 ];
 
 }
+
+

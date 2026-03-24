@@ -4,8 +4,7 @@
   services.displayManager.sddm.enable = false;
   services.xserver.displayManager.startx.enable = true; 
   services.desktopManager.plasma6.enable = true;
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "kayon";
+
   
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
@@ -15,16 +14,10 @@
           --replace "LogLevel=INFO" "LogLevel=ERROR" 
   '';
 
-  networking.firewall.allowedTCPPorts = [ 
-    # 8080 in main file
-  ];
-
 }
 
 
-  
-# 0ca70b2b576d5932b96090836c46ddd48aa88ffa88f74e79b8efb89dfa964e5b
-# orangeresonance
+
 
 
 

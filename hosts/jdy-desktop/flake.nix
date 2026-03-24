@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,16 +16,23 @@
       url = "github:glaumar/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+
+
   };
 
   outputs = { 
@@ -34,6 +42,8 @@
     sops-nix, 
     nix-flatpak, 
     glaumar_repo, 
+    nix-index-database,
+
     ... 
    }@inputs: {
     
@@ -53,6 +63,7 @@
         home-manager.nixosModules.home-manager 
         nix-flatpak.nixosModules.nix-flatpak
         sops-nix.nixosModules.sops
+        nix-index-database.nixosModules.default
         ./configuration.nix 
         ./hardware-configuration.nix
       ];

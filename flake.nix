@@ -3,11 +3,15 @@
 
 
 
-  # update inputs with:
-  # `nix flake update --update-input <input-name>`
+  # update host with:
+  # `nix flake update --update-input <host>`
 
-  # update all with 
+  # update all hosts with 
   # `nix flake update`
+
+  # add input with 
+  # `nix flake update --update-input <host>/<input-name>`
+
   inputs = {
     jdy-laptop.url = "path:./hosts/jdy-laptop";
     mv-church.url = "path:./hosts/mv-church";
@@ -15,7 +19,10 @@
     jdy-desktop.url = "path:./hosts/jdy-desktop";
   };
 
-  outputs = { self, ... }@inputs: {
+  outputs = { 
+    self, 
+    ... 
+  }@inputs: {
     nixosConfigurations = {
       jdy-laptop = inputs.jdy-laptop.nixosConfigurations.jdy-laptop;
       mv-church = inputs.mv-church.nixosConfigurations.mv-church;

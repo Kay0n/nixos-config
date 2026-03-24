@@ -12,15 +12,7 @@
       ZSH_AUTOSUGGEST_STRATEGY=(completion history)
       # unsetopt beep # disable bell sound on backspace
 
-      # alias/command for `nix shell nixpkgs#<pgk_name>`
-      pkg() {
-        if [ -z "$1" ]; then
-          echo "Usage: pkg <package-name>"
-          return 1
-        fi
-        echo "Adding package $1 to shell environment..."
-        nix shell "nixpkgs#$1"
-      }
+
 
     '';
 

@@ -1,6 +1,10 @@
 { pkgs, inputs, config, ... }:
 {
 
+  imports = [
+    ./stt.nix
+  ];
+
 
   programs.niri = {
     enable = true;
@@ -28,10 +32,11 @@
 
     programs.noctalia-shell = {
       enable = true;
-      settings = "/home/kayon/.nixos-config/modules/niri/noctalia-config";
+      # settings = "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
     };
 
     xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/config.kdl";
+    xdg.configFile."noctalia/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
 
     gtk = {
       enable = true;
@@ -51,12 +56,16 @@
 
     };
 
-    home.sessionVariables.GTK_THEME = "adw-gtk3";
+
+    # home.sessionVariables.GTK_THEME = "adw-gtk3";
+
+
+
 
   };
 
 
-  
+
 
 
 
@@ -78,6 +87,7 @@
         main = {
           # sends mod+g on release
           leftmeta = "overload(meta, M-g)";
+          capslock = "f9";
         };
       };
     };
@@ -114,6 +124,7 @@
 
 
 
+        
 
 
 

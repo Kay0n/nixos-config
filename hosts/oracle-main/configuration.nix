@@ -34,6 +34,7 @@
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
       ../../users/kayon/modules/vscode.nix
+      ../../users/kayon/modules/scripts.nix
     ];
 
     home.packages = with pkgs; [
@@ -55,16 +56,6 @@
 
 
   programs.zsh.enable = true;
-
-  # services.tailscale = {
-  #   enable = true;
-  #   useRoutingFeatures = "server"; 
-  #   openFirewall = true; # UDP 41641
-  # };
-
-  nixpkgs.overlays = [
-  ];
-
 
 
   programs.nix-ld.enable = true;
@@ -106,7 +97,6 @@
     55551 55552 55553 # share
     22 # ssh
     # 8083 8085 # calibre web automated
-    # 8080 # xrdp?
     # 5900 6080 # x11vnc
   ];
 

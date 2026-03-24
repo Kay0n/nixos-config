@@ -30,6 +30,7 @@
         home-manager.nixosModules.home-manager 
         sops-nix.nixosModules.sops
         copyparty.nixosModules.default
+        nix-index-database.nixosModules.default
         ./configuration.nix 
         ./hardware-configuration.nix
       ];

@@ -23,6 +23,7 @@
       ../../users/kayon/modules/tmux.nix
       ../../users/kayon/modules/git.nix
       ../../users/kayon/modules/zsh.nix
+      ../../users/kayon/modules/scripts.nix
       
     ];
 
@@ -31,7 +32,7 @@
       # arrpc # discord rich presence server
       # steam
       # calibre
-      prismlauncher
+      # prismlauncher
       # protonup-qt
       # qbittorrent
       # lutris
@@ -61,23 +62,23 @@
     # vlc
     # appimage-run
     # gparted
-    exfatprogs # exfat drivers
-    ntfs3g # ntfs driver
-    intel-gpu-tools
+    # exfatprogs # exfat drivers
+    # ntfs3g # ntfs driver
+    # intel-gpu-tools
   ];
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   services.logind.lidSwitch = "lock";
 
   programs.zsh.enable = true;
 
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=3s
-  '';
-  systemd.user.extraConfig = ''
-    DefaultTimeoutStopSec=3s
-  '';
+  # systemd.extraConfig = ''
+  #   DefaultTimeoutStopSec=3s
+  # '';
+  # systemd.user.extraConfig = ''
+  #   DefaultTimeoutStopSec=3s
+  # '';
 
   # run appimages with the appigame-run interpreter
   # programs.appimage.binfmt = true;

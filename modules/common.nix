@@ -39,7 +39,28 @@
 
   hardware.bluetooth = {
     enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # show battery charge on supported devices
+        Experimental = true;
+        FastConnectable = true;
+        ControllerMode = "dual"; # support both classic and BLE devices
+      };
+      Policy = {
+        AutoEnable = true;
+      };
+    };
   };
+
+  # needed on non-fhs vscode for some java extensions to work
+  programs.nix-ld.enable = true;
+
+  programs.zsh.enable = true;
+
+
+
+  
 
   environment.systemPackages = with pkgs; [
     wget
