@@ -97,6 +97,7 @@
           "extensions.pocket.enabled" = lock-false;
           "extensions.screenshots.disabled" = lock-true;
           "browser.topsites.contile.enabled" = lock-false;
+          "browser.sessionstore.max_resumed_crashes" = 0;
           # "browser.formfill.enable" = lock-false;
           # "browser.search.suggest.enabled" = lock-false;
           "browser.search.suggest.enabled.private" = lock-false;

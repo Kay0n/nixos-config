@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
+    nixpkgs-temp.url = "github:nixos/nixpkgs/nixos-unstable"; 
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,6 +39,7 @@
   outputs = { 
     self, 
     nixpkgs, 
+    nixpkgs-temp,
     home-manager, 
     sops-nix, 
     nix-flatpak, 
@@ -56,6 +58,12 @@
           nixpkgs.overlays = [
             (final: prev: {
               glaumar_repo = inputs.glaumar_repo.packages."${prev.system}";
+            })
+            (final: prev: {
+              temp = import nixpkgs-temp {
+                inherit (final) config;
+                inherit (final.stdenv.hostPlatform) system;
+              };
             })
           ];
         })

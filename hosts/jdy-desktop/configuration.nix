@@ -16,12 +16,22 @@
     ../../modules/syncthing.nix
     ../../modules/niri/niri.nix
     ../../modules/firefox.nix
+    ../../modules/llama.nix
     ../../secrets/sops.nix
   ];
 
 
   nixpkgs.overlays = [
     inputs.nixpkgs-xr.overlays.default
+
+    (final: prev: {
+      lmstudio = prev.lmstudio.override {
+        version = "0.4.7-4";
+        url = "https://installers.lmstudio.ai/linux/x64/0.4.7-4/LM-Studio-0.4.7-4-x64.AppImage";
+        hash = "sha256-2dSgBr2B+PIUi/YCBmXDWXQWEEId6Qymh1JQuAPG/xU="; 
+      };
+    })
+
   ];
 
 
@@ -63,6 +73,9 @@
 
 
 
+
+
+
     home.packages = with pkgs; [
       vesktop # discord client
       # arrpc # rich presence server
@@ -98,6 +111,12 @@
     
     ];
   };
+
+      # services.ollama = {
+    #   enable = true;
+    #   package = pkgs.ollama-rocm;
+    # };
+    # services.open-webui.enable = true; # http://localhost:11434
 
 
   networking.networkmanager.ensureProfiles.profiles = {
@@ -159,7 +178,7 @@
   
 
   environment.systemPackages = with pkgs; [
-    lmstudio
+    # lmstudio
     # inputs.glaumar_repo.packages.${pkgs.system}.qrookie
     # glaumar_repo.qrookie
     # blender
