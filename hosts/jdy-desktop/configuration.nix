@@ -34,6 +34,7 @@
 
   ];
 
+  powerManagement.cpuFreqGovernor = "schedutil";  
 
   programs.nix-index-database.comma.enable = true;
 
@@ -73,8 +74,7 @@
 
 
 
-
-
+    # test fix for firefox audio cutout on different workspace
 
     home.packages = with pkgs; [
       vesktop # discord client
