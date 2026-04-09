@@ -54,7 +54,11 @@
   };
 
   # needed on non-fhs vscode for some java extensions to work
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+    ];
+  };
 
   programs.zsh.enable = true;
 
@@ -68,6 +72,7 @@
     python3
     tmux
     unzip
+    devenv
   ];
 
 

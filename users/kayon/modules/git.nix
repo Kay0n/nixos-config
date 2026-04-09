@@ -9,6 +9,7 @@
         email = "kayon5555@gmail.com";
       };
     };
+    signing.format = null;
   };
 
 }

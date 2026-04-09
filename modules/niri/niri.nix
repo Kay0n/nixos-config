@@ -44,6 +44,7 @@
         name = "adw-gtk3";
         package = pkgs.adw-gtk3;
       };
+      gtk4.theme = null;
     };
 
     dconf.settings = { 
@@ -113,9 +114,10 @@
     gnome-text-editor
     gnome-disk-utility 
     file-roller # file extraction
+    vlc # media player
 
     # === theming programs === #
-    pywalfox-native # firefox theming
+    # pywalfox-native # firefox theming
 
 
 

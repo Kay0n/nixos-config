@@ -20,9 +20,13 @@
       url = "github:9001/copyparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, copyparty, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, sops-nix, copyparty, nix-index-database, ... }@inputs: {
     nixosConfigurations.oracle-main = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
