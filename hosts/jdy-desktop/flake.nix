@@ -30,6 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    llama-cpp.url = "github:ggml-org/llama.cpp";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
@@ -45,6 +46,7 @@
     nix-flatpak, 
     glaumar_repo, 
     nix-index-database,
+    llama-cpp,
 
     ... 
    }@inputs: {

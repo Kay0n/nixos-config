@@ -44,50 +44,51 @@
         # see about:support for extension/add-on ID strings
         # find addon url for 
         # installation_mode - [ "allowed", "blocked", "force_installed", "normal_installed" ]
-        ExtensionSettings = {
-          # "*".installation_mode = "blocked"; # blocks all addons except the ones specified
-          # uBlock Origin
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Absolute Enable Right Click & Copy
-          "{9350bc42-47fb-4598-ae0f-825e3dd9ceba}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/absolute-enable-right-click/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Bitwarden Password Manager
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Dark Reader
-          "addon@darkreader.org" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # FastForward
-          "addon@fastforward.team" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Don't Fuck With Paste
-          "DontFuckWithPaste@raim.ist" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/don-t-fuck-with-paste/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # Sponsorblock
-          "sponsorBlocker@ajay.app" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          # WebToEpub
-          "WebToEpub@Baka-tsuki.org" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/webtoepub/latest.xpi";
-            installation_mode = "force_installed";
-          };
+        # # these are commented as they interfere with selenium browsers
+        # ExtensionSettings = {
+        #   # "*".installation_mode = "blocked"; # blocks all addons except the ones specified
+        #   # uBlock Origin
+        #   "uBlock0@raymondhill.net" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # Absolute Enable Right Click & Copy
+        #   "{9350bc42-47fb-4598-ae0f-825e3dd9ceba}" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/absolute-enable-right-click/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # Bitwarden Password Manager
+        #   "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # Dark Reader
+        #   "addon@darkreader.org" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # FastForward
+        #   "addon@fastforward.team" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # Don't Fuck With Paste
+        #   "DontFuckWithPaste@raim.ist" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/don-t-fuck-with-paste/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # Sponsorblock
+        #   "sponsorBlocker@ajay.app" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
+        #   # WebToEpub
+        #   "WebToEpub@Baka-tsuki.org" = {
+        #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/webtoepub/latest.xpi";
+        #     installation_mode = "force_installed";
+        #   };
 
-        };
+        # };
   
         /* ---- PREFERENCES ---- */
         # see about:config for options

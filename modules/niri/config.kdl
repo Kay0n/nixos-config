@@ -27,11 +27,11 @@ output "HDMI-A-2" {
 }
 
 
-workspace "a" {}
+// workspace "a" {}
 // workspace "b" {}
 // workspace "c" {}
 
-workspace "d" {open-on-output "HDMI-A-2";}
+// workspace "d" {open-on-output "HDMI-A-2";}
 // workspace "e" {open-on-output "HDMI-A-2";}
 // workspace "f" {open-on-output "HDMI-A-2";}
 

@@ -1,19 +1,36 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+
+
+
 
 let
-  llama = pkgs.writeShellScriptBin "llama" ''
+  llama-vulkan = (inputs.llama-cpp.packages.${pkgs.system}.vulkan).overrideAttrs (old: {
+    cmakeFlags = (old.cmakeFlags or []) ++ [
+      "-DGGML_NATIVE=ON"
+    ];
+  });
+in
+let
+  ai = pkgs.writeShellScriptBin "ai" ''
+    ${llama-vulkan}/bin/llama-server \
+      --models-dir ~/.cache/llama.cpp \
+      --models-preset ~/.cache/llama.cpp/models.ini \
+      --port 8033 \
+      --host 127.0.0.1 \
+      --jinja 
+      -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M
+
+
+
+
+    echo "llama-server exited"
+  '';
+
+    ai-web = pkgs.writeShellScriptBin "ai-web" ''
     # open in background
     (${pkgs.xdg-utils}/bin/xdg-open http://localhost:8033 &) >/dev/null 2>&1       
 
-    ${pkgs.llama-cpp-vulkan}/bin/llama-server \
-      --models-dir ~/.cache/llama.cpp \
-      --port 8033 \
-      --host 127.0.0.1 \
-      --jinja \
-      -c 0 \
-      --ctx-size 131072
-
-    echo "llama-server exited"
+    ai
   '';
 
   opencode-websearch = pkgs.writeShellScriptBin "opencode" ''
@@ -24,33 +41,33 @@ in
 
 
 {
-  nixpkgs.overlays = [
+  nixpkgs.overlays = [ 
+    inputs.llama-cpp.overlays.default
     (final: prev: {
-      llama-cpp = (prev.llama-cpp.override {
-        blasSupport = true;
-      })
-      .overrideAttrs (old: {
-        version = "8508";
 
+      pi-coding-agent = prev.pi-coding-agent.overrideAttrs (new: old: {
+        version = "0.70.0";
         src = old.src.override {
-          hash = "sha256-73JfQWN/mPFV82Qod61AgxMpSrgh0Lz/NEsf1ljZHUc=";
+          hash = "sha256-gB3QUxA4OZ8Zg5YGbAHmknSnAHrhEGxzz/DXRiKiK50=";
         };
-
-        npmDepsHash = "sha256-DxgUDVr+kwtW55C4b89Pl+j3u2ILmACcQOvOBjKWAKQ=";
-
-        cmakeFlags = (old.cmakeFlags or []) ++ [
-          "-DGGML_NATIVE=ON"
-        ];
-
+        # npmDepsHash = ""; # not needed if overriding npmDeps
+        npmDeps = pkgs.fetchNpmDeps {
+          inherit (new) src;
+          hash = "sha256-SBm5GPmHNZ24zYBo3rA9n3XTz8Y7oNOaGJ2dY/X2ccw=";
+        };
       });
+
     })
   ];
 
 
 
   environment.systemPackages = with pkgs; [
-    llama
+    ai
+    ai-web
     opencode-websearch
+    pi-coding-agent
+    llama-vulkan
   ];
 
 }

@@ -7,6 +7,12 @@
   };
 
 
+  programs.nautilus-open-any-terminal = { 
+    enable = true;
+    terminal = "alacritty";
+  };
+
+
 
   imports = [
     ../../modules/common.nix
