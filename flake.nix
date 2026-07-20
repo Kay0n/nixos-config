@@ -3,13 +3,13 @@
 
 
 
-  # update host with:
+  # add/update specific host with:
   # `nix flake update --update-input <host>`
 
   # update all hosts with 
   # `nix flake update`
 
-  # add input with 
+  # add/update input with 
   # `nix flake update --update-input <host>/<input-name>`
 
   inputs = {

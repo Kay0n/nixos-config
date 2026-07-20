@@ -2,7 +2,7 @@
 {
   virtualisation.oci-containers.containers.guacamole = {
     image = "jwetzell/guacamole:1.5.5";
-    ports = [ "6938:8080" ];
+    ports = [ "127.0.0.1:6938:8080" ];
     volumes = [
       "/home/kayon/guac:/config"  
     ];

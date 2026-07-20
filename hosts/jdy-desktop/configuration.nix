@@ -22,7 +22,7 @@
     ../../modules/syncthing.nix
     ../../modules/niri/niri.nix
     ../../modules/firefox.nix
-    ../../modules/llama.nix
+    ../../modules/llama/llama.nix
     ../../secrets/sops.nix
   ];
 
@@ -47,19 +47,20 @@
   # xbox controller driver
   # hardware.xone.enable = true;
 
-  # services.flatpak = {
-  #   enable = true;
-  #   packages = [
-  #     rec {
-  #       appId = "com.hypixel.HytaleLauncher";
-  #       sha256 = "sha256-iBYZTbm82X+CbF9v/7pwOxxxfK/bwlBValCAVC5xgV8=";
-  #       bundle = "${pkgs.fetchurl {
-  #         url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
-  #         inherit sha256;
-  #       }}";
-  #     }
-  #   ];
-  # };
+  services.flatpak = {
+    enable = true;
+    packages = [
+      # rec {
+      #   appId = "com.hypixel.HytaleLauncher";
+      #   sha256 = "sha256-iBYZTbm82X+CbF9v/7pwOxxxfK/bwlBValCAVC5xgV8=";
+      #   bundle = "${pkgs.fetchurl {
+      #     url = "https://launcher.hytale.com/builds/release/linux/amd64/hytale-launcher-latest.flatpak";
+      #     inherit sha256;
+      #   }}";
+      # }
+      "org.vinegarhq.Sober" # run with:   flatpak run --socket=x11 org.vinegarhq.Sober
+    ];
+  };
 
   
   home-manager.backupFileExtension = "backup"; # needed?
@@ -96,7 +97,7 @@
       nil # nix language server
 
       # quickemu
-      # owmods-cli
+
       # rustdesk-flutter
       obsidian
       # nodejs
@@ -139,6 +140,10 @@
       };
     };
   };
+
+
+
+  programs.noisetorch.enable = true;
 
   # programs.nix-ld.libraries = with pkgs; [
   #   alsa-lib
@@ -184,6 +189,8 @@
   
 
   environment.systemPackages = with pkgs; [
+      # owmods-cli
+      owmods-gui
     # lmstudio
     # inputs.glaumar_repo.packages.${pkgs.system}.qrookie
     # glaumar_repo.qrookie
@@ -242,6 +249,12 @@
   # boot.extraModprobeConfig = ''
   #   options snd-hda-intel model=auto
   # '';
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
 
 
   services.udev.extraRules = ''

@@ -16,7 +16,7 @@
 
     # host specific imports
     ./modules/copyparty.nix
-    ./modules/cwa.nix
+    ./modules/cwa/cwa.nix
     ./modules/caddy.nix
     ./modules/xrdp.nix
     ./modules/guacamole.nix
