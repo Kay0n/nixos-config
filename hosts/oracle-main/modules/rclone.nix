@@ -2,7 +2,7 @@
 {
 
 
-  sops.templates."rclone.conf" = {
+  sops.templates."rclone-books.conf" = {
     owner = "kayon";
     content = ''
       [mv-google-drive]
@@ -16,7 +16,7 @@
       [secret]
       type = crypt
       remote = mv-google-drive:book-backup
-      password = ${config.sops.placeholder.rclone_crypt_password}
+      password = ${config.sops.placeholder.rclone_crypt_book_pass}
     '';
   };
 
@@ -35,7 +35,7 @@
         ${pkgs.rclone}/bin/rclone sync \
           /home/kayon/book-automation/cwa/library \
           secret:book-backup \
-          --config "${config.sops.templates."rclone.conf".path}" \
+          --config "${config.sops.templates."rclone-books.conf".path}" \
           --verbose
       '';
     };

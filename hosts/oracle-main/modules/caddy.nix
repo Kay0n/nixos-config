@@ -39,6 +39,13 @@
           }
         '';
       };  
+      "photos.refract.online" = {
+        extraConfig = ''
+          handle {
+            reverse_proxy 127.0.0.1:2283
+          }
+        '';
+      };  
     };
   };
 }

@@ -9,7 +9,11 @@
     rclone_client_id = { };
     rclone_client_secret = { };
     rclone_access_token = { };
-    rclone_crypt_password = { };
+    rclone_crypt_book_pass = { };
+    rclone_crypt_immich_pass = { };
     hardcover_api_key = { }; # token expires 22/11/2026
+  };
+  environment.variables = {
+    SOPS_AGE_KEY_FILE = "/home/kayon/.ssh/id_ed25519";
   };
 }

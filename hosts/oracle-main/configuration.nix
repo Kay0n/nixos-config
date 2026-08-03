@@ -22,6 +22,7 @@
     ./modules/guacamole.nix
     ./modules/rclone.nix
     ./modules/celestenet.nix
+    ./modules/immich.nix
   ];
   
 
