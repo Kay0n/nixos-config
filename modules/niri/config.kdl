@@ -8,6 +8,9 @@ input {
         numlock
     }
     focus-follows-mouse max-scroll-amount="0%"
+    touchpad {
+        natural-scroll
+    }
 
 }
 
@@ -202,6 +205,6 @@ window-rule {
 
 
 
-include "./noctalia.kdl" // import theming from noctalia-shell 
+// include "./noctalia.kdl" // import theming from noctalia-shell 
 
 
