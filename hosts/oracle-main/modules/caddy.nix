@@ -4,6 +4,13 @@
     enable = true;
 
     virtualHosts = {
+      "refract.online" = {
+        extraConfig = ''
+          handle {
+            reverse_proxy 127.0.0.1:8082
+          }
+        '';
+      };
       "books.refract.online" = {
         extraConfig = ''
           handle_path /webdav/* {
@@ -16,7 +23,7 @@
         '';
       };
 
-      # "refract.online" = {
+      # "index.refract.online" = {
       #   extraConfig = ''
       #     root * /var/www/
       #     file_server {
@@ -39,7 +46,7 @@
           }
         '';
       };  
-      "photos.refract.online" = {
+      "immich.refract.online" = {
         extraConfig = ''
           handle {
             reverse_proxy 127.0.0.1:2283

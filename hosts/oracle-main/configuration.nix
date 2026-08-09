@@ -23,6 +23,7 @@
     ./modules/rclone.nix
     ./modules/celestenet.nix
     ./modules/immich.nix
+    ../../modules/homepage.nix
   ];
   
 

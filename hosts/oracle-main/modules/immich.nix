@@ -88,3 +88,6 @@
 
 
 
+
+
+# ./immich-go upload from-google-photos --server=https://photos.refract.online --concurrent-tasks=1 --on-errors=4 --api-key=XXX --pause-immich-jobs=FALSE ./google-takeout.zip

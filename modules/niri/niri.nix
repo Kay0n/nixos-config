@@ -25,6 +25,8 @@
   };
 
 
+  services.upower.enable = true;
+
   home-manager.users.kayon = {config, ...}: {
     imports = [
       inputs.noctalia.homeModules.default
@@ -34,6 +36,7 @@
       enable = true;
       # settings = "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
     };
+    
 
     xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/config.kdl";
     xdg.configFile."noctalia/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
@@ -56,13 +59,7 @@
       };
 
     };
-
-
     # home.sessionVariables.GTK_THEME = "adw-gtk3";
-
-
-
-
   };
 
 

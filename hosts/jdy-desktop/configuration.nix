@@ -30,13 +30,14 @@
   nixpkgs.overlays = [
     inputs.nixpkgs-xr.overlays.default
 
-    (final: prev: {
-      lmstudio = prev.lmstudio.override {
-        version = "0.4.7-4";
-        url = "https://installers.lmstudio.ai/linux/x64/0.4.7-4/LM-Studio-0.4.7-4-x64.AppImage";
-        hash = "sha256-2dSgBr2B+PIUi/YCBmXDWXQWEEId6Qymh1JQuAPG/xU="; 
-      };
-    })
+
+    # (final: prev: {
+    #   arnis = prev.arnis.overrideAttrs (old: {
+    #   buildInputs = old.buildInputs ++ [
+    #     final.glib
+    #   ];
+    #   });
+    # })
 
   ];
 
@@ -59,6 +60,7 @@
       #   }}";
       # }
       "org.vinegarhq.Sober" # run with:   flatpak run --socket=x11 org.vinegarhq.Sober
+      "com.stremio.Stremio"
     ];
   };
 
@@ -87,10 +89,10 @@
       vesktop # discord client
       # arrpc # rich presence server
       steam
-      calibre
+      # calibre
       prismlauncher
       protonup-qt
-      qbittorrent
+      # qbittorrent
       # lutris
       qdirstat 
       onlyoffice-desktopeditors
@@ -126,24 +128,24 @@
     # services.open-webui.enable = true; # http://localhost:11434
 
 
-  networking.networkmanager.ensureProfiles.profiles = {
-    quest-local = {
-      connection = {
-        interface-name = "enp8s0";
-        id = "quest-local";
-        permissions = "";
-        type = "ethernet";
-      };
-      ipv4 = {
-        method = "auto"; 
-        route-metric = 800;
-      };
-    };
-  };
+  # networking.networkmanager.ensureProfiles.profiles = {
+  #   quest-local = {
+  #     connection = {
+  #       interface-name = "enp8s0";
+  #       id = "quest-local";
+  #       permissions = "";
+  #       type = "ethernet";
+  #     };
+  #     ipv4 = {
+  #       method = "auto"; 
+  #       route-metric = 800;
+  #     };
+  #   };
+  # };
 
 
 
-  programs.noisetorch.enable = true;
+  # programs.noisetorch.enable = true;
 
   # programs.nix-ld.libraries = with pkgs; [
   #   alsa-lib
@@ -153,81 +155,24 @@
 
 
 
-  # TODO: fix config not being applied
-  # build fails 28-8-25
-  # services.wivrn = {
-  #   enable = true;
-  #   package = pkgs.wivrn;
-  #   openFirewall = true;
-  #   autoStart = true;
-  #   defaultRuntime = true;
-  #   config = {
-  #     enable = true;
-  #     json = {
-  #       scale = 1.0;
-  #       # 100 Mb/s
-  #       bitrate = 100000000;
-  #       encoders = [
-  #         {
-  #           encoder = "vaapi";
-  #           codec = "av1";
-  #           width = 1.0;
-  #           height = 1.0;
-  #           offset_x = 0.0;
-  #           offset_y = 0.0;
-  #         }
-  #       ];
-  #       openvr-compat-path = pkgs.xrizer;
-  #     };
-  #   };
-  # };
 
-
-  # # attempt to get wlx-overlay-s input working
-  # boot.kernelModules = [ "uinput" ];
-  # hardware.uinput.enable = true;
-  
 
   environment.systemPackages = with pkgs; [
-      # owmods-cli
       owmods-gui
-    # lmstudio
-    # inputs.glaumar_repo.packages.${pkgs.system}.qrookie
-    # glaumar_repo.qrookie
-    # blender
-    # vlc
-    # gparted
-    # glaumar_repo.qrookie # QRookie bin, not working currently
 
-    # music
-    # ardour # daw
-    # sfizz # sfz interface
     # nettools # for ifconfig
-
-    # hub
-    # godot
-
-    # wlx-overlay-s
-    # monado-vulkan-layers
-    # opencomposite
 
     # android-tools
     # exfatprogs # exfat drivers
     # ntfs3g # ntfs driver
-    # gamescope
-    # lm_sensors
+
   ];
 
 
   virtualisation.docker.enable = true;
 
 
-  # programs.direnv.enable = true;
-  
 
-
-  # # run appimages with the appimage-run interpreter
-  # programs.appimage.binfmt = true;
   
   # # Used to setup aarch64 oracle with nixos-anywhere  
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
