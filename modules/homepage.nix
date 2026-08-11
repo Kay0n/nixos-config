@@ -10,7 +10,7 @@
     allowedHosts = "refract.online,refract.online:443";
 
     settings = {
-      title = "Kayon's Homepage";
+      title = "Oracle Homepage";
       theme = "dark";
     };
 
@@ -74,7 +74,6 @@
                   type = "calibreweb";
                   url = "http://127.0.0.1:8083";
 
-                  # Add your Calibre-Web username/password
                   username = "kayon";
                   password = "{{HOMEPAGE_VAR_CALIBRE_WEB_AUTOMATED_KAYON}}";
 
@@ -104,10 +103,42 @@
 
             };
           }
+          
         ];
+      }
+    ];
+
+    widgets = [
+      {
+        glances = {
+          url = "http://localhost:61208";
+          version = 4; 
+          uptime = true;
+          disk = [
+            "/"
+            "/mnt/rclone-immich-media/" # not sure how to track a second disk
+          ];
+        };
       }
     ];
 
     bookmarks = [];
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      glances = prev.glances.overrideAttrs (oldAttrs: {
+        disabledTests = (oldAttrs.disabledTests or []) ++ [
+          "test_phys_core_returns_int"
+        ];
+      });
+    })
+  ];
+
+  services.glances = {
+    enable = true;
+    port = 61208;
+  };
+
+
 }
