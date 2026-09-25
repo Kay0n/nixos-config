@@ -57,9 +57,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
 
-    Mod+G              { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+I              { spawn-sh "noctalia-shell ipc call settings toggle"; }
-    Mod+L              { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+G { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+I { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+L { spawn-sh "noctalia msg panel-toggle session"; }
 
     Mod+T              { spawn "alacritty"; }
     Mod+R              { spawn "firefox"; }
@@ -208,3 +208,6 @@ window-rule {
 // include "./noctalia.kdl" // import theming from noctalia-shell 
 
 
+
+
+include "noctalia.kdl"

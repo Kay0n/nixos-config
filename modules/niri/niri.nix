@@ -12,34 +12,32 @@
   };
 
 
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
+
+  services.displayManager.noctalia-greeter = {
+    enable = true;
+    settings = {
+      cursor.size = 24;
+      keyboard.layout = "us";
     };
-    autoLogin = {
-      enable = true;
-      user = "kayon";
+    passwordlessSyncUsers = [ "kayon" ];
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
     };
-    defaultSession = "niri";
   };
 
+  programs.noctalia = {
+    enable = true;
+    systemd.enable = true;
+    recommendedServices.enable = true;
+  };
 
   services.upower.enable = true;
 
   home-manager.users.kayon = {config, ...}: {
-    imports = [
-      inputs.noctalia.homeModules.default
-    ];
 
-    programs.noctalia-shell = {
-      enable = true;
-      # settings = "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
-    };
-    
-
+    home.file.".local/state/noctalia/settings.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/noctalia-config.toml";
     xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/config.kdl";
-    xdg.configFile."noctalia/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/kayon/.nixos-config/modules/niri/noctalia-config.json";
 
     gtk = {
       enable = true;
@@ -67,6 +65,9 @@
   };
 
 
+  multiverse.enable = true;
+  multiverse.pins.xwayland-satellite = "0.8.1";
+
 
 
   services.keyd = {
@@ -93,7 +94,7 @@
 
     # === DE substitutes === #
     xdg-desktop-portal-gnome 
-    xwayland-satellite
+    # xwayland-satellite
 
     udiskie # auto mount external drives - needs udisks2 sservice
 

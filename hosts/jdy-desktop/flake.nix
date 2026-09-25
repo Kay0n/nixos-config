@@ -38,6 +38,12 @@
       url = "github:fzakaria/omnibin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    multiverse = {
+      url = "github:fzakaria/nixpkgs-multiverse";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
   };
 
@@ -52,6 +58,7 @@
     nix-index-database,
     llama-cpp,
     omnibin,
+    multiverse,
     ... 
    }@inputs: {
     
@@ -71,6 +78,7 @@
                 inherit (final.stdenv.hostPlatform) system;
               };
             })
+            inputs.millennium.overlays.default
           ];
         })
 
@@ -78,6 +86,8 @@
         nix-flatpak.nixosModules.nix-flatpak
         sops-nix.nixosModules.sops
         nix-index-database.nixosModules.default
+        inputs.omnibin.nixosModules.default
+        inputs.multiverse.nixosModules.default
         ./configuration.nix 
         ./hardware-configuration.nix
       ];

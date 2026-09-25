@@ -1,0 +1,139 @@
+config_version = 14
+
+[bar.default]
+center = [ "workspaces" ]
+end = [ "tray", "clipboard", "volume", "network", "bluetooth", "battery", "clock" ]
+margin_ends = 0
+padding = 12
+radius = 0
+scale = 1.1500000096857548
+start = [ "control-center", "media" ]
+
+[battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
+warning_threshold = 5
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-2", "lockscreen-login-box@DP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1024.0
+    cy = 970.0
+    output = "DP-2"
+    placement_height = 1152.0
+    placement_width = 2048.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[plugins]
+enabled = [ "noctalia/wallhaven" ]
+
+[shell]
+avatar_path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Catppuccin Mocha Mauve-Lavender"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "gtk3", "gtk4", "niri", "qt" ]
+    community_ids = [
+        "claude-code",
+        "pi-agent",
+        "pywalfox-beta4",
+        "discord",
+        "vscode",
+        "heroiclauncher",
+        "prismlauncher",
+        "steam",
+        "tmux"
+    ]
+
+[wallpaper.default]
+path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
+
+[wallpaper.last]
+path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
+
+[wallpaper.monitors.DP-2]
+path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
+
+[wallpaper.monitors.HDMI-A-2]
+path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
+
+[widget.control-center]
+custom_image = "/home/kayon/Pictures/NixOS.png"
+custom_image_colorize = true
+scale = 1.4000000000000001
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.session]
+glyph = "ewew"
+
+[widget.volume]
+show_label = false

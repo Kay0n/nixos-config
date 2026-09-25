@@ -28,7 +28,6 @@
     ../../modules/firefox.nix
     ../../modules/llama/llama.nix
     ../../secrets/sops.nix
-    inputs.omnibin.nixosModules.default
   ];
   
   services.omnibin.enable = false;
@@ -92,7 +91,6 @@
     home.packages = with pkgs; [
       vesktop # discord client
       # arrpc # rich presence server
-      steam
       # calibre
       prismlauncher
       protonup-qt
@@ -125,12 +123,10 @@
     ];
   };
 
-      # services.ollama = {
-    #   enable = true;
-    #   package = pkgs.ollama-rocm;
-    # };
-    # services.open-webui.enable = true; # http://localhost:11434
-
+  programs.steam = {
+    enable = true;
+    package = pkgs.millennium-steam;
+  };
 
   # networking.networkmanager.ensureProfiles.profiles = {
   #   quest-local = {
