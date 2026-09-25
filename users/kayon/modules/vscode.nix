@@ -26,7 +26,6 @@
       extensions = with pkgs.vscode-extensions; [
         # === base ===
         # ms-vscode-remote.remote-ssh
-        visualstudioexptteam.vscodeintellicode
 
         # === java extensions ===
         redhat.java
@@ -38,7 +37,6 @@
 
         # === nix === 
         jnoortheen.nix-ide # syntax and language support
-        arrterian.nix-env-selector
         
         # === python ===
         # ms-python.python # build fail as of 28-8-25

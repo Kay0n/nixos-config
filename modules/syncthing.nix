@@ -49,21 +49,7 @@
             "jdy-laptop"
           ];
         };
-        # "books-sync" = {
-        #   id = "books-sync";
-        #   path = 
-        #     if config.networking.hostName == "oracle-main" then
-        #       "/home/kayon/book-automation/cwa/library"
-        #     else
-        #       "/home/kayon/.books-sync";
-        #   devices = [ 
-        #     "jdy-desktop" 
-        #     "oracle-main" 
-        #     "jdy-kindle"
-        #     "jdy-samsung"
-        #   ];
-        # };
-        
+      
       };
 
     };

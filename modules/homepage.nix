@@ -135,10 +135,10 @@
     })
   ];
 
-  services.glances = {
-    enable = true;
-    port = 61208;
-  };
+  # services.glances = {
+  #   enable = true;
+  #   port = 61208;
+  # };
 
 
 }

@@ -34,6 +34,10 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
+    omnibin =  {
+      url = "github:fzakaria/omnibin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
@@ -47,7 +51,7 @@
     glaumar_repo, 
     nix-index-database,
     llama-cpp,
-
+    omnibin,
     ... 
    }@inputs: {
     

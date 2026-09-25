@@ -62,6 +62,7 @@
       rs = "rsync -avz --info=progress2";
       nixe = "code /home/kayon/.nixos-config & disown; exit";
       hypre = "code /home/kayon/.config/hypr/hyprland.conf & disown; exit";
+      nix-shell = "NIXPKGS_ALLOW_UNFREE=1 nix-shell";
     };  
     
     autosuggestion.enable = true;

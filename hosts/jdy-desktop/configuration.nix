@@ -12,6 +12,10 @@
     terminal = "alacritty";
   };
 
+  
+
+
+
 
 
   imports = [
@@ -24,12 +28,12 @@
     ../../modules/firefox.nix
     ../../modules/llama/llama.nix
     ../../secrets/sops.nix
+    inputs.omnibin.nixosModules.default
   ];
-
+  
+  services.omnibin.enable = false;
 
   nixpkgs.overlays = [
-    inputs.nixpkgs-xr.overlays.default
-
 
     # (final: prev: {
     #   arnis = prev.arnis.overrideAttrs (old: {
@@ -59,7 +63,7 @@
       #     inherit sha256;
       #   }}";
       # }
-      "org.vinegarhq.Sober" # run with:   flatpak run --socket=x11 org.vinegarhq.Sober
+      "org.vinegarhq.Sober" # if launch issues, run with:   flatpak run --socket=x11 org.vinegarhq.Sober
       "com.stremio.Stremio"
     ];
   };
@@ -94,14 +98,14 @@
       protonup-qt
       # qbittorrent
       # lutris
-      qdirstat 
       onlyoffice-desktopeditors
       nil # nix language server
 
       # quickemu
 
-      # rustdesk-flutter
+
       obsidian
+
       # nodejs
       # godot_4
       # r2modman
@@ -147,18 +151,18 @@
 
   # programs.noisetorch.enable = true;
 
-  # programs.nix-ld.libraries = with pkgs; [
-  #   alsa-lib
-  #   openssl
-  #   libgcc
-  # ];
+  programs.nix-ld.libraries = with pkgs; [
+    # alsa-lib
+    # openssl
+    # libgcc
+  ];
 
 
 
 
 
   environment.systemPackages = with pkgs; [
-      owmods-gui
+    # owmods-gui # wrong listed executable name?
 
     # nettools # for ifconfig
 

@@ -22,7 +22,7 @@
     ./modules/guacamole.nix
     ./modules/rclone.nix
     ./modules/celestenet.nix
-    ./modules/immich.nix
+    ./modules/immich/immich.nix
     ../../modules/homepage.nix
   ];
   

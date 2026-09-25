@@ -47,6 +47,10 @@
         name = "adw-gtk3";
         package = pkgs.adw-gtk3;
       };
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 11;
+      };
       gtk4.theme = null;
     };
 
@@ -64,15 +68,6 @@
 
 
 
-
-
-
-
-
-
-
-
-  
 
   services.keyd = {
     enable = true;
@@ -122,19 +117,18 @@
   ];
 
 
-
-        
-
-
-
   services.udisks2.enable = true;
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+    ];
+  };
 
 
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+
 
 
   # security.pam.services.hyprlock = {};

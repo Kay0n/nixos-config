@@ -10,7 +10,6 @@
       # EXTENSIONS = "auth-totp";
     };
     extraOptions = [
-      # connects to host xrdp on host.docker.internal:3389
       "--add-host=host.docker.internal:host-gateway"
     ];
   };
