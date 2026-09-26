@@ -1,34 +1,42 @@
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
   description = "Kayon's NixOS Root Flake";
 
-
-
-  # add/update specific host with:
-  # `nix flake update --update-input <host>`
-
-  # update all hosts with 
-  # `nix flake update`
-
-  # add/update input with 
-  # `nix flake update --update-input <host>/<input-name>`
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    jdy-laptop.url = "path:./hosts/jdy-laptop";
-    mv-church.url = "path:./hosts/mv-church";
-    oracle-main.url = "path:./hosts/oracle-main";
-    jdy-desktop.url = "path:./hosts/jdy-desktop";
-  };
-
-  outputs = { 
-    self, 
-    ... 
-  }@inputs: {
-    nixosConfigurations = {
-      jdy-laptop = inputs.jdy-laptop.nixosConfigurations.jdy-laptop;
-      mv-church = inputs.mv-church.nixosConfigurations.mv-church;
-      oracle-main = inputs.oracle-main.nixosConfigurations.oracle-main;
-      jdy-desktop = inputs.jdy-desktop.nixosConfigurations.jdy-desktop;
+    copyparty = {
+      url = "github:9001/copyparty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-file.url = "github:denful/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    import-tree.url = "github:denful/import-tree";
+    llama-cpp.url = "github:ggml-org/llama.cpp";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-temp.url = "github:nixos/nixpkgs/nixos-unstable";
+    omnibin = {
+      url = "github:fzakaria/omnibin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
-
