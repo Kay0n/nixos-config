@@ -16,6 +16,7 @@
 
       firefox
       vscode
+      alacritty
 
       # services
       syncthing

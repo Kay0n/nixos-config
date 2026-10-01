@@ -5,7 +5,6 @@
 
     imports = with nixos; [
       home-manager
-      sops
       comma
     ];
 

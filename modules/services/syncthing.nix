@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.syncthing = { pkgs, config, ... }: {
 
@@ -19,6 +20,7 @@
           "jdy-samsung" = { id = "Y7224Y7-NQW7NB5-H74YYVA-KG5DHI4-MVAWMMG-INMA4J3-HYVH5RW-4SBPUQ2"; };
           "jdy-laptop" = { id = "SIAZJVL-VTIHLLW-6INP5DI-LNFDZIR-FX3XXJM-UWH45UV-A4IQYO3-BPMLIQ3"; };
           # "jdy-kindle" = { id = "PM6ZELX-OSSYIZD-666G6I4-7LOCGD2-ICXWZRK-PFKF7XY-BREEEPI-ZCDVPAY"; };
+          "verbatim" = { id = "SZKLS2W-WDM7EU3-BMUHG5B-P3MMQPW-EWPHDHI-J5SJUOF-GTINPTK-O2COZQG"; };
         };
 
         folders = {
@@ -48,6 +50,7 @@
               "jdy-desktop" 
               "oracle-main" 
               "jdy-laptop"
+	      "verbatim"
             ];
           };
 

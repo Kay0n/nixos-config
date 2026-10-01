@@ -9,6 +9,7 @@
       ./_hardware-configuration.nix
 
       default
+      sops
       kayon
       share
 
