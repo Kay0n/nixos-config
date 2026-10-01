@@ -1,18 +1,15 @@
-{ inputs, nixos, ... }:
+{ nixos, ... }:
 {
-  flake-file.inputs.omnibin = {
-    url = "github:fzakaria/omnibin";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+
 
   flake.modules.nixos."hosts/jdy-desktop" = { pkgs, lib, ... }: {
     imports = with nixos; [
       ./_hardware-configuration.nix
-      inputs.omnibin.nixosModules.default
 
       default
       desktop
-
+      niri
+      noctalia
 
       kayon
 
@@ -28,14 +25,6 @@
     ];
 
 
-
-
-    programs.nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "alacritty";
-    };
-
-    services.omnibin.enable = false;
 
     nixpkgs.overlays = [
     ];

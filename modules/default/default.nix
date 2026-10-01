@@ -6,7 +6,7 @@
     imports = with nixos; [
       home-manager
       sops
-      nix-index
+      comma
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];

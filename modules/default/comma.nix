@@ -6,7 +6,7 @@
   };
 
   # prebuilt nix-index database (command-not-found, `nix-locate`)
-  flake.modules.nixos.nix-index = {
+  flake.modules.nixos.comma = {
     imports = [ inputs.nix-index-database.nixosModules.default ];
 
     programs.nix-index-database.comma.enable = true;

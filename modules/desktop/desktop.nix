@@ -5,8 +5,6 @@
 
     imports = with nixos; [
       pipewire
-      niri
-      noctalia
     ];
 
     hardware.graphics = {
@@ -31,6 +29,10 @@
       };
     };
 
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "alacritty";
+    };
 
   };
 }
