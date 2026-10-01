@@ -1,0 +1,10 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
+[colors.primary]
+background = "#181824"
+
+[window]
+opacity = 0.9
+
+# ss

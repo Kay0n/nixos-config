@@ -29,7 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-temp.url = "github:nixos/nixpkgs/nixos-unstable";
     omnibin = {
       url = "github:fzakaria/omnibin";
       inputs.nixpkgs.follows = "nixpkgs";

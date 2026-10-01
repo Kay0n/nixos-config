@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, config, ... }:
 {
   # Every .nix file under ./modules is a flake-parts module, auto-imported by import-tree
   # (paths containing `/_` are skipped - used for plain NixOS modules like hardware configs).
@@ -21,4 +21,11 @@
   };
 
   systems = [ "x86_64-linux" ];
+
+  # pass these to every module, so files can write `{ nixos, homeManager, root, ... }:`
+  _module.args = {
+    inherit (config.flake.modules) nixos homeManager;
+    # repo root as a path, e.g. `root + "/secrets/secrets.yaml"` works wherever the module lives
+    root = ../..;
+  };
 }
