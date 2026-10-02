@@ -1,3 +1,4 @@
+{ ... }:
 {
   # encrypted Google Drive mounted at /mnt/rclone-immich-media, used as immich's mediaLocation
   flake.modules.nixos.rclone-immich = { pkgs, lib, config, ... }: {

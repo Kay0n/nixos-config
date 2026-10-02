@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.niri = { pkgs, ... }: let
     # Source from https://code.m3ta.dev/m3tam3re/nixpkgs/src/branch/master/pkgs/stt-ptt/default.nix

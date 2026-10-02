@@ -1,5 +1,6 @@
+{ ... }:
 {
-  flake.modules.nixos.homepage = { pkgs, config, inputs, ... }: {
+  flake.modules.nixos.homepage = { pkgs, config, ... }: {
     # sops.secrets."homepage_env".mode = "0644";
 
     services.homepage-dashboard = {

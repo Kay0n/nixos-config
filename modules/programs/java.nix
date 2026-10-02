@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.java = { pkgs, ... }: let
     # enable "java8" and "java17" to be used in shell

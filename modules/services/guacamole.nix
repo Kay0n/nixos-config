@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.guacamole = { ... }: {
     virtualisation.oci-containers.containers.guacamole = {

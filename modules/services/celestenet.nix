@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.celestenet = { config, lib, pkgs, ... }: let
     celestenet-dist = "${pkgs.fetchzip {

@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.caddy = { pkgs, ... }: {
     services.caddy = {

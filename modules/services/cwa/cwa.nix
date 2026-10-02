@@ -1,5 +1,6 @@
+{ nixos, ... }:
 {
-  flake.modules.nixos.cwa = { config, nixos, ... }: {
+  flake.modules.nixos.cwa = { config, ... }: {
 
     imports = with nixos; [
       rclone-books

@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.firefox = { config, pkgs, ... }: let
     lock-false = {

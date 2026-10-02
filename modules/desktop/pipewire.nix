@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.pipewire = { pkgs, ... }: {
 

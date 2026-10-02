@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.cwa = { pkgs, ... }: let
     libraryPath = "/home/kayon/book-automation/cwa/library";

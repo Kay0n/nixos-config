@@ -1,5 +1,6 @@
+{ nixos, ... }:
 {
-  flake.modules.nixos.immich = { pkgs, config, nixos, ... }: {
+  flake.modules.nixos.immich = { pkgs, config, ... }: {
 
 
     imports = with nixos; [

@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.rclone-books = { pkgs, config, ... }: {
 

@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos.xrdp = { pkgs, config, ... }: {
     services.xserver.enable = true;

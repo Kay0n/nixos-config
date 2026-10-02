@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.modules.nixos."hosts/jdy-laptop" = { config, pkgs, ... }: {
 
