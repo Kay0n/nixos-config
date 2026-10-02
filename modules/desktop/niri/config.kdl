@@ -74,7 +74,7 @@ binds {
     Mod+F              { switch-preset-column-width; }
     Mod+Shift+F        { fullscreen-window; }
     Mod+Shift+V        { toggle-window-floating; }
-    Mod+Shift+X        { screenshot; }
+    Mod+Shift+S        { screenshot; }
     Mod+Q repeat=false { close-window; }
     Print              { screenshot; }
     Ctrl+Alt+Delete    { quit; }
@@ -97,10 +97,10 @@ binds {
     Mod+SHift+Left              { move-workspace-to-monitor-left; }
     Mod+SHift+Right             { move-workspace-to-monitor-right; }
 
-    Mod+SHift+W                 { move-workspace-up; }
-    Mod+SHift+S                 { move-workspace-down; }
-    Mod+SHift+A                 { move-workspace-to-monitor-left; }
-    Mod+SHift+D                 { move-workspace-to-monitor-right; }
+    // Mod+SHift+W                 { move-workspace-up; }
+    // Mod+SHift+S                 { move-workspace-down; }
+    // Mod+SHift+A                 { move-workspace-to-monitor-left; }
+    // Mod+SHift+D                 { move-workspace-to-monitor-right; }
 
     Mod+WheelScrollDown         { focus-column-right; }
     Mod+WheelScrollUp           { focus-column-left; }
