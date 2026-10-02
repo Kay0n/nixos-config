@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.syncthing = { pkgs, config, ... }: {
+  flake.modules.nixos.syncthing = { pkgs, config, lib, ... }: {
 
 
     services.syncthing = {
@@ -23,7 +23,8 @@
           "verbatim" = { id = "SZKLS2W-WDM7EU3-BMUHG5B-P3MMQPW-EWPHDHI-J5SJUOF-GTINPTK-O2COZQG"; };
         };
 
-        folders = {
+        # ignore .git at any depth in every folder
+        folders = lib.mapAttrs (_: folder: folder // { ignorePatterns = [ ".git" ]; }) {
           "Documents" = {
             id = "docs";
             path = "/home/kayon/Documents";
