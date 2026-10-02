@@ -22,6 +22,7 @@
       flatpak
       steam
       alacritty
+      omnibin
     ];
 
 

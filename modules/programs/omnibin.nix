@@ -5,8 +5,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.nixos.omnibin = { 
-    imports = [ inputs.omnibin.nixosModules.default];
-    services.omnibin.enable = false;
+  # provides omnibin-shell with every binary on PATH 
+  # the nixos module is mean for VMs/containers, not workstations
+  flake.modules.nixos.omnibin = { pkgs, ... }: {
+    environment.systemPackages = [
+      inputs.omnibin.packages.${pkgs.stdenv.hostPlatform.system}.omnibin-shell
+    ];
   };
 }

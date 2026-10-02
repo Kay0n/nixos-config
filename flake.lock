@@ -274,11 +274,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790786515,
-        "narHash": "sha256-ikI9/4tUyR/A1QKDIfL94/awKExX+8GE9gnBM8onwuo=",
+        "lastModified": 1790874417,
+        "narHash": "sha256-q9eC2wdcloF8RhjajSDfpNFjHM60WZ+1gRDZ0HBJldE=",
         "owner": "fzakaria",
         "repo": "omnibin",
-        "rev": "d420c466f67029edd8da392cbd2fecf83357eb24",
+        "rev": "14b54e2363cda0f4284fd64895172b800818e45c",
         "type": "github"
       },
       "original": {
