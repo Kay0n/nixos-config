@@ -18,7 +18,7 @@
     home-manager.sharedModules = [ homeManager.niri ];
 
     multiverse.enable = true;
-    multiverse.pins.xwayland-satellite = "0.8.1";
+    # multiverse.pins.<pkgname> = "0.8.1";
 
 
     services.keyd = {
@@ -42,7 +42,7 @@
     environment.systemPackages = with pkgs; [
       # === DE substitutes === #
       xdg-desktop-portal-gnome
-      # xwayland-satellite
+      xwayland-satellite
       udiskie # auto mount external drives - needs udisks2 sservice
       # === Programs === #
       nautilus # file manager

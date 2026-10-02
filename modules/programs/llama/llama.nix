@@ -1,6 +1,10 @@
 { inputs, homeManager, ... }:
 {
-  flake-file.inputs.llama-cpp.url = "github:ggml-org/llama.cpp";
+  flake-file.inputs.llama-cpp = {
+    url = "github:ggml-org/llama.cpp";
+    # loads system vulkan drivers, so must share our nixpkgs (glibc)
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   flake.modules.nixos.llama = { pkgs, ... }: let
     llama-vulkan =

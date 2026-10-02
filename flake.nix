@@ -20,8 +20,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
-    llama-cpp.url = "github:ggml-org/llama.cpp";
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    llama-cpp = {
+      url = "github:ggml-org/llama.cpp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    millennium = {
+      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-index-database = {
