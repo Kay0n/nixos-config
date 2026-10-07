@@ -11,6 +11,7 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     boot.loader.systemd-boot.enable = true;
+    boot.loader.systemd-boot.configurationLimit = 10; # keep the 512M ESP from filling up
     boot.loader.efi.canTouchEfiVariables = true;
 
     time.timeZone = "Australia/Adelaide";

@@ -5,6 +5,4 @@ import = ["~/.config/alacritty/themes/noctalia.toml"]
 background = "#181824"
 
 [window]
-opacity = 0.9
-
-# ss
+opacity = 0.85

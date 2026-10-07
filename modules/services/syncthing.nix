@@ -31,6 +31,7 @@
               "jdy-desktop" 
               "oracle-main" 
               "jdy-laptop"
+              "verbatim"
             ];
           };
           "congealed-magma" = {
