@@ -5,6 +5,7 @@
   flake.modules.nixos."hosts/jdy-desktop" = { pkgs, lib, ... }: {
     imports = with nixos; [
       ./_hardware-configuration.nix
+      ./_audio.nix
 
       default
       desktop

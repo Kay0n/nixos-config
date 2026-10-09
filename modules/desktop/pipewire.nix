@@ -13,10 +13,6 @@
       # wireplumber.enable = true;
     };
 
-    boot.extraModprobeConfig = ''
-      options snd_hda_intel model=alc897
-    '';
-
     environment.systemPackages = with pkgs; [
       # pavucontrol
       # pulseaudio
