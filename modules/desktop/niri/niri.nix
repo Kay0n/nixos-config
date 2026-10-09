@@ -1,13 +1,6 @@
-{ inputs, homeManager, ... }:
+{ homeManager, ... }:
 {
-  flake-file.inputs.multiverse.url = "github:fzakaria/nixpkgs-multiverse";
-
   flake.modules.nixos.niri = { pkgs, ... }: {
-
-    imports = [
-      inputs.multiverse.nixosModules.default
-    ];
-
 
     programs.niri = {
       enable = true;
@@ -16,10 +9,6 @@
 
 
     home-manager.sharedModules = [ homeManager.niri ];
-
-    multiverse.enable = true;
-    # multiverse.pins.<pkgname> = "0.8.1";
-
 
     services.keyd = {
       enable = true;
