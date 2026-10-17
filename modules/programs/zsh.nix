@@ -21,6 +21,7 @@
         ls = "ls -1 --color=auto";
         py = "python";
         nixrb = "sudo nixos-rebuild switch --flake /home/kayon/.nixos-config";
+        nixgc = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
         clip = "${pkgs.xclip} -r -selection clipboard";
         rs = "rsync -avz --info=progress2";
         nixe = "code /home/kayon/.nixos-config & disown; exit";
