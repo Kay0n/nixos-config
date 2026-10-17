@@ -19,11 +19,11 @@
       java
       firefox
       vscode
-      llama
       flatpak
       steam
       alacritty
       omnibin
+      
     ];
 
 

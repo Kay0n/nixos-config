@@ -30,9 +30,6 @@
       LC_TIME = "en_AU.UTF-8";
     };
 
-    virtualisation.docker.enable = true;
-    virtualisation.oci-containers.backend = "docker";
-
     nixpkgs.config.allowUnfree = true;
 
     networking.networkmanager.enable = true;

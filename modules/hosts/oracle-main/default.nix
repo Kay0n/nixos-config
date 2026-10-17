@@ -10,6 +10,7 @@
 
       default
       sops
+      docker
       kayon
       share
 
