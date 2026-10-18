@@ -57,7 +57,7 @@
     options snd_hda_intel patch=alc897-split.fw,alc897-split.fw
   '';
 
-  # Pro Audio ignores hardware mixer: enable independent HP, unmute outputs.
+  # Pro Audio ignores hardware mixer: enable independent HP, unmute outputs and mic
   services.udev.extraRules =
     let
       setup = pkgs.writeShellScript "alc897-mixer-setup" ''
@@ -67,6 +67,8 @@
           $amixer -q -c "$1" sset "$ctl" 100% unmute
         done
         $amixer -q -c "$1" sset 'Input Source' 'Front Mic'
+        $amixer -q -c "$1" sset Capture 0dB cap
+        $amixer -q -c "$1" sset 'Front Mic Boost' 2 # +20dB
       '';
     in
     ''
