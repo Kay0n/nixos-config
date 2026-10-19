@@ -33,6 +33,11 @@
               "jdy-laptop"
               "verbatim"
             ];
+            # any depth, (?d) lets syncthing delete them when removing a parent dir
+            ignorePatterns = [
+              "(?d).devenv"
+              "(?d).venv"
+            ];
           };
           "congealed-magma" = {
             id = "obsidian-vault";
