@@ -4,9 +4,49 @@
     services.caddy = {
       enable = true;
 
+      # snippets for authelia (see authelia.nix)
+      #   private site:   `import authelia` before reverse_proxy
+      #   public + login: `import authelia_split 127.0.0.1:<port>`
+      extraConfig = ''
+        # forward_auth already drops client-sent copies of copy_headers (no spoofing)
+        (authelia) {
+          forward_auth 127.0.0.1:9091 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
+        }
+
+        (strip_identity) {
+          request_header -Remote-User
+          request_header -Remote-Groups
+          request_header -Remote-Email
+          request_header -Remote-Name
+        }
+
+        # for sites with public and private endpoints
+        (authelia_split) {
+          @loggedin header_regexp Cookie (^|;\s*)authelia_session=
+          handle @loggedin {
+            import authelia
+            reverse_proxy {args[0]}
+          }
+          handle {
+            import strip_identity
+            reverse_proxy {args[0]}
+          }
+        }
+      '';
+
       virtualHosts = {
+        "login.refract.online" = {
+          extraConfig = ''
+            reverse_proxy 127.0.0.1:9091
+          '';
+        };
+
         "refract.online" = {
           extraConfig = ''
+            import authelia
             handle {
               reverse_proxy 127.0.0.1:8082
             }
@@ -35,6 +75,9 @@
 
         "rdp.refract.online" = {
           extraConfig = ''
+            import authelia
+            # guacamole auth-header ext reads REMOTE_USER by default
+            request_header REMOTE_USER {http.request.header.Remote-User}
             handle {
               reverse_proxy 127.0.0.1:6938
             }

@@ -21,6 +21,7 @@
       # services
       syncthing
       caddy
+      authelia
       copyparty
       cwa
       xrdp
