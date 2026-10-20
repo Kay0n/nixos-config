@@ -149,7 +149,7 @@ builtin = "Noctalia"
 community_palette = "Catppuccin Mocha Mauve-Lavender"
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-fruit-salad"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "alacritty", "gtk3", "gtk4", "niri", "qt" ]

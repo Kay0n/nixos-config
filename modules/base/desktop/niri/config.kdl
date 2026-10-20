@@ -40,6 +40,11 @@ output "HDMI-A-2" {
 
 
 
+// app focus
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
 hotkey-overlay { skip-at-startup; }
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
