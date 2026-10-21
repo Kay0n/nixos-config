@@ -1,15 +1,19 @@
-{ ... }:
+{ root, ... }:
 {
   # SSO portal at login.refract.online
-  flake.modules.nixos.authelia = { config, ... }: let secrets = config.sops.secrets; in {
+  flake.modules.nixos.authelia = { config, ... }: let
+    secrets = config.sops.secrets;
+    sopsFile = root + "/secrets/authelia.yaml";
+  in {
 
-    # module passes these in via systemd LoadCredential, so root ownership is fine
     sops.secrets = {
-      authelia_jwt_secret = { };
-      authelia_session_secret = { };
-      authelia_storage_key = { };
+      authelia_jwt_secret = { inherit sopsFile; };
+      authelia_session_secret = { inherit sopsFile; };
+      authelia_storage_key = { inherit sopsFile; };
       authelia_users = {
+        inherit sopsFile;
         owner = "authelia-main";
+        restartUnits = [ "authelia-main.service" ];
       };
     };
 
@@ -34,7 +38,7 @@
         };
 
         session = {
-          inactivity = "1d";
+          inactivity = "6h";
           expiration = "1w";
           remember_me = "1M";
           cookies = [
@@ -63,12 +67,24 @@
         totp.issuer = "refract.online";
 
         access_control = {
-          # new subdomains are private until listed here
+          # first matching rule wins
+          # caddy block must import an authelia snippet 
           default_policy = "deny";
           rules = [
             { domain = "login.refract.online"; policy = "bypass"; }
-            { domain = [ "refract.online" "rdp.refract.online" ]; policy = "two_factor"; }
-            { domain = [ "files.refract.online" "books.refract.online" ]; policy = "one_factor"; }
+
+            # admins: everything, 2fa unless listed
+            { domain = [ "files.refract.online" "books.refract.online" ]; subject = "group:admins"; policy = "one_factor"; }
+            { domain = [ "refract.online" "*.refract.online" ]; subject = "group:admins"; policy = "two_factor"; }
+
+            # other users: only what's listed
+            { domain = "celeste.refract.online"; subject = "group:celeste"; policy = "one_factor"; }
+
+            # any logged in user, cwa decides what they see (public view if no account)
+            { domain = "books.refract.online"; policy = "one_factor"; }
+
+            # everyone else
+            { domain = [ "refract.online" "*.refract.online" ]; policy = "deny"; }
           ];
         };
       };

@@ -58,8 +58,9 @@
               reverse_proxy 127.0.0.1:8085
             }
 
+            # enable reverse proxy auth in cwa settings
             handle {
-              reverse_proxy 127.0.0.1:8083
+              import authelia_split 127.0.0.1:8083
             }
           '';
         };
@@ -72,6 +73,13 @@
         #     }
         #   '';
         # };
+
+        "celeste.refract.online" = {
+          extraConfig = ''
+            import authelia
+            reverse_proxy 127.0.0.1:8947
+          '';
+        };
 
         "rdp.refract.online" = {
           extraConfig = ''
