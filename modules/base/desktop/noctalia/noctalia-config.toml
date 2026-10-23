@@ -174,9 +174,9 @@ path = "/home/kayon/Pictures/Wallpapers/882586.jpg"
 path = "/home/kayon/Pictures/wallhaven-jevdjy.png"
 
 [widget.control-center]
-custom_image = "/home/kayon/.nixos-config/modules/desktop/noctalia/NixOS.png"
+custom_image = "/home/kayon/.nixos-config/modules/base/desktop/noctalia/NixOS.png"
 custom_image_colorize = true
-scale = 1.4000000000000001
+scale = 1.42
 
 [widget.media]
 hide_when_no_media = true
