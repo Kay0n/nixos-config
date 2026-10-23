@@ -22,7 +22,10 @@
             # sends mod+g on release
             leftmeta = "overload(meta, M-g)";
             capslock = "f9";
+            # only sends f4 on a solo tap, ignored if held down with another key
+            f4 = "overload(f4hold, f4)";
           };
+          f4hold = { };
         };
       };
     };

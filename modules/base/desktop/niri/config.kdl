@@ -65,6 +65,8 @@ binds {
     Mod+G { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+I { spawn-sh "noctalia msg settings-toggle"; }
     Mod+L { spawn-sh "noctalia msg panel-toggle session"; }
+    // lock, suspend if already locked
+    F4 allow-when-locked=true { spawn-sh "noctalia msg status | grep -q '\"locked\": true' && noctalia msg session suspend || noctalia msg session lock"; }
 
     Mod+T              { spawn "alacritty"; }
     Mod+R              { spawn "firefox"; }
