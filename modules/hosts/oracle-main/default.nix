@@ -29,6 +29,7 @@
       celestenet
       immich
       homepage
+      celeste-wasm
     ];
 
 

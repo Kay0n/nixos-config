@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "celeste-wasm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792726960,
+        "narHash": "sha256-4asTdVC6ep6Jr8BZ/mnOAVsKdK3lNRccBpEdnD9KlkQ=",
+        "owner": "Kay0n",
+        "repo": "celeste-wasm",
+        "rev": "4ddd054576569373cd719280d80af59eac48e61f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kay0n",
+        "repo": "celeste-wasm",
+        "type": "github"
+      }
+    },
     "copyparty": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -306,6 +326,7 @@
     },
     "root": {
       "inputs": {
+        "celeste-wasm": "celeste-wasm",
         "copyparty": "copyparty",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",

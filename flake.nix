@@ -6,6 +6,10 @@
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
+    celeste-wasm = {
+      url = "github:Kay0n/celeste-wasm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     copyparty = {
       url = "github:9001/copyparty";
       inputs.nixpkgs.follows = "nixpkgs";

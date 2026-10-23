@@ -76,8 +76,23 @@
 
         "celeste.refract.online" = {
           extraConfig = ''
-            import authelia
-            reverse_proxy 127.0.0.1:8947
+            # hashed runtime/bundle files: public, cached forever, no auth
+            # (dotnet.js isn't hashed, so it stays behind login and revalidates)
+            @hashed {
+              path /_framework/* /assets/*
+              not path /_framework/dotnet.js
+            }
+            handle @hashed {
+              import strip_identity
+              reverse_proxy 127.0.0.1:8947 {
+                header_down Cache-Control "public, max-age=31536000, immutable"
+              }
+            }
+
+            handle {
+              import authelia
+              reverse_proxy 127.0.0.1:8947
+            }
           '';
         };
 
