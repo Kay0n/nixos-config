@@ -23,6 +23,7 @@
       steam
       alacritty
       omnibin
+      handy
       
     ];
 
