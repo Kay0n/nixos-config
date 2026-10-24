@@ -89,6 +89,12 @@
               }
             }
 
+            # wisp proxy celeste-wasm
+            handle /wisp/* {
+              import authelia
+              reverse_proxy 127.0.0.1:4100
+            }
+
             handle {
               import authelia
               reverse_proxy 127.0.0.1:8947

@@ -30,6 +30,7 @@
       immich
       homepage
       celeste-wasm
+      wisp
     ];
 
 
