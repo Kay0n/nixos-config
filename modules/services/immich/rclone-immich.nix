@@ -50,10 +50,10 @@
             --vfs-cache-mode full \
             --vfs-cache-max-size 30G \
             --vfs-cache-max-age 168h \
-            --vfs-read-chunk-size 128M
-            --vfs-read-chunk-size-limit 2G
+            --vfs-read-chunk-size 128M \
+            --vfs-read-chunk-size-limit 2G \
             --vfs-read-ahead 128M \
-            --buffer-size 64M
+            --buffer-size 64M \
             --dir-cache-time 1000h \
             --poll-interval 1m
         '';   

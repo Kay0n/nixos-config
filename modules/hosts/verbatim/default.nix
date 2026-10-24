@@ -39,11 +39,6 @@
       ACTION=="remove", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="${lib.removePrefix "/dev/disk/by-uuid/" config.fileSystems."/".device}", RUN{program}+="/run/usb-killswitch/busybox sh -c 'echo b > /proc/sysrq-trigger'"
     '';
 
-
-    networking.firewall.allowedTCPPorts = [
-      22 # ssh
-    ];
-
-
+    system.stateVersion = "24.11"; # install release, do not change
   };
 }

@@ -125,8 +125,11 @@
               reverse_proxy 127.0.0.1:2283
             }
           '';
-        };  
+        };
       };
     };
+
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedUDPPorts = [ 443 ]; # http/3
   };
 }

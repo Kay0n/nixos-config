@@ -22,7 +22,7 @@
       # Enable the Nvidia settings menu (program nvidia-settings)
       nvidiaSettings = true;
 
-      nvidiaPersistenced = true;
+      nvidiaPersistenced = false; # keeps the dGPU awake, defeats offload
 
       prime = {
         offload = {

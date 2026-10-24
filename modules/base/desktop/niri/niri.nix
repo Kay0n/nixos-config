@@ -35,7 +35,11 @@
       # === DE substitutes === #
       xdg-desktop-portal-gnome
       xwayland-satellite
-      udiskie # auto mount external drives - needs udisks2 sservice
+      # auto mount external drives - needs udisks2 sservice
+      # test_invalidate fails in the build sandbox (EKEYREVOKED from kernel keyring)
+      (udiskie.overridePythonAttrs (old: {
+        disabledTests = (old.disabledTests or [ ]) ++ [ "test_invalidate" ];
+      }))
       # === Programs === #
       nautilus # file manager
       loupe # image viewer

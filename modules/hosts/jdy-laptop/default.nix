@@ -8,19 +8,21 @@
 
       default
       desktop
+      niri
+      noctalia
       kayon
-      # gnome
       # java
       syncthing
       firefox
       vscode
+      alacritty
     ];
 
 
     # user specific settings   
     home-manager.users.kayon = {
       home.packages = with pkgs; [
-        vesktop # discord client
+        vesktop 
         onlyoffice-desktopeditors
         nil # nix language server
         obsidian
@@ -42,6 +44,6 @@
 
     networking.hostName = "jdy-laptop"; 
 
-
+    system.stateVersion = "24.11"; # install release, do not change
   };
 }

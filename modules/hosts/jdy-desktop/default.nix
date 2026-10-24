@@ -48,16 +48,15 @@
       "org.vinegarhq.Sober" # if launch issues, run with:   flatpak run --socket=x11 org.vinegarhq.Sober
       "com.stremio.Stremio"
     ];
+    # sober reach arRPC for vesktop
+    services.flatpak.overrides.settings."org.vinegarhq.Sober".Context.filesystems = [ "xdg-run/discord-ipc-0" ];
 
 
 
     # user specific settings
     home-manager.users.kayon = {
-      services.arrpc.enable = true;
-
       home.packages = with pkgs; [
-        vesktop # discord client
-        # calibre
+        vesktop # uses builtin arRPC
         prismlauncher
         protonup-qt
         # qbittorrent
@@ -117,5 +116,6 @@
 
     networking.hostName = "jdy-desktop";
 
+    system.stateVersion = "24.11"; # install release, do not change
   };
 }

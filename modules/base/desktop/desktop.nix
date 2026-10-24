@@ -14,6 +14,12 @@
 
     services.printing.enable = true;
 
+    # firmware updates from LVFS
+    # `fwupdmgr get-devices`   list visible devices
+    # `fwupdmgr get-updates`   list available updates
+    # `fwupdmgr update`        install
+    services.fwupd.enable = true;
+
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;

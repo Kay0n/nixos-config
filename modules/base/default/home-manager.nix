@@ -14,7 +14,7 @@
     # provides `config.lib.dotfiles.link`, see modules/flake/dotfiles.nix
     home-manager.sharedModules = [ homeManager.dotfiles ];
 
-    home-manager.backupFileExtension = "backup"; # needed?
+    home-manager.backupFileExtension = "backup";
 
   };
 }

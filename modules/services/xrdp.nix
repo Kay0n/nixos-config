@@ -9,10 +9,11 @@
 
     services.xrdp.enable = true;
     services.xrdp.defaultWindowManager = "startplasma-x11";
-    services.xrdp.openFirewall = true;
+    services.xrdp.openFirewall = false;
+    networking.firewall.interfaces.docker0.allowedTCPPorts = [ config.services.xrdp.port ];
     services.xrdp.extraConfDirCommands = ''
       substituteInPlace $out/xrdp.ini \
-            --replace "LogLevel=INFO" "LogLevel=ERROR" 
+            --replace-fail "LogLevel=INFO" "LogLevel=ERROR" 
     '';
 
   };

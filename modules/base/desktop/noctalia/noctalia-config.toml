@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [bar.default]
 center = [ "workspaces" ]
@@ -176,7 +176,7 @@ path = "/home/kayon/Pictures/wallhaven-jevdjy.png"
 [widget.control-center]
 custom_image = "/home/kayon/.nixos-config/modules/base/desktop/noctalia/NixOS.png"
 custom_image_colorize = true
-scale = 1.42
+scale = 1.4199999999999999
 
 [widget.media]
 hide_when_no_media = true

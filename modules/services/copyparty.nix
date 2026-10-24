@@ -18,7 +18,7 @@
 
 
       settings = {
-        i = "0.0.0.0";
+        i = "127.0.0.1"; 
         # use lists to set multiple values
         # p = [ 3210 3211 ];
         # use booleans to set binary flags

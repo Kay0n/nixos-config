@@ -7,6 +7,11 @@
       postPatch = (old.postPatch or "") + ''
         substituteInPlace src-tauri/src/main.rs \
           --replace-fail 'std::env::set_var("WEBKIT_DISABLE_DMABUF_RENDERER", "1");' ""
+        # --no-tray forces the window open even with --start-hidden.
+        # not needed: launching `handy` again shows the window via single-instance
+        substituteInPlace src-tauri/src/lib.rs \
+          --replace-fail 'if should_force_show || !should_hide || !tray_available {' \
+                         'if should_force_show || !should_hide {'
       '';
       preFixup = builtins.replaceStrings
         [ "--set WEBKIT_DISABLE_DMABUF_RENDERER 1" ] [ "" ]

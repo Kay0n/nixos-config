@@ -46,6 +46,13 @@
         done
     '';
   in {
+    # drop TTS: piper-tts -> pyopenjtalk-plus fails tests on python 3.14
+    nixpkgs.overlays = [
+      (final: prev: {
+        calibre = prev.calibre.override { speechSupport = false; };
+      })
+    ];
+
     systemd.services.cwa-pagecount = {
       description = "Count pages for new Calibre-Web-Automated books";
       serviceConfig = {
@@ -55,7 +62,7 @@
     };
 
     systemd.timers.cwa-pagecount = {
-      description = "Run cwa-pagecount every minute";
+      description = "Run cwa-pagecount hourly";
       wantedBy = [ "timers.target" ];
       timerConfig = {
         OnCalendar = "hourly";

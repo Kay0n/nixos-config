@@ -48,6 +48,12 @@
       settings.GatewayPorts = "yes";
     };
 
+    # 5 failures - 10m ban, doubles each ban
+    services.fail2ban = {
+      enable = true;
+      bantime-increment.enable = true;
+    };
+
 
 
     # services.ddclient = {
@@ -71,12 +77,9 @@
 
 
     networking.firewall.allowedTCPPorts = [
-      443 80 # http/s
       25565 50000 50001 50002 # mc
-      55551 55552 55553 # share
-      22 # ssh
     ];
 
-
+    system.stateVersion = "24.11"; # install release, do not change
   };
 }

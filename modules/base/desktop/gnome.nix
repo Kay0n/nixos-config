@@ -9,13 +9,13 @@
         layout = "us";
         variant = "";
       };
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
       excludePackages = with  pkgs; [ xterm ];
     };
 
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true;
 
-    services.gnome.core-utilities.enable = false;
+    services.gnome.core-apps.enable = false;
 
     home-manager.sharedModules = [ homeManager.gnome ];
 
@@ -23,13 +23,13 @@
       gnome-tour 
       gnome-music 
       nixos-render-docs 
-      pantheon.epiphany 
+      epiphany
     ];
 
     environment.systemPackages = with pkgs; [
       file-roller # archive manager
       nautilus # file manager  services.xserver.
-      kgx # console
+      gnome-console # console
       alacritty # alt console
       gnome-text-editor
       gnome-tweaks
@@ -51,6 +51,7 @@
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+      gtk4.theme = null;
     };
 
     qt = {
@@ -101,7 +102,7 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>t";
-        command = "kgx";
+        command = "kgx"; # binary name of gnome-console
         name = "GNOME Console";
       };
 

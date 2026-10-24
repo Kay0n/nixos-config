@@ -6,7 +6,7 @@
     users.users.share = { # remember to set password with `sudo passwd share`
       isNormalUser = true;
       description = "share user for ssh tunneling";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ ];
     };
 
     # ssh keys
@@ -34,6 +34,9 @@
         Banner                      none
       '';
     };
+
+    # remote-forwarded tunnel ports
+    networking.firewall.allowedTCPPorts = [ 55551 55552 55553 ];
 
   };
 }

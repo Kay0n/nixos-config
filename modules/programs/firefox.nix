@@ -112,6 +112,7 @@
             "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
             "browser.toolbars.bookmarks.visibility" = { Value = "always"; Status = "locked"; };
+            "dom.fullscreen.keyboard_lock.enabled" = lock-true;
           };
         };
       };

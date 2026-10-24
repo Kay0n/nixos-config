@@ -9,9 +9,14 @@
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    # lets wheel users add substituters (devenv caches), kayon already has sudo anyway
+    nix.settings.trusted-users = [ "root" "@wheel" ];
 
     boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.configurationLimit = 10; # keep the 512M ESP from filling up
+    boot.loader.systemd-boot.configurationLimit = 20; # keep the 512M ESP from filling up
+    boot.tmp.cleanOnBoot = true;
+
+    zramSwap.enable = true; # compressed swap in RAM
     boot.loader.efi.canTouchEfiVariables = true;
 
     time.timeZone = "Australia/Adelaide";
@@ -42,6 +47,15 @@
 
     programs.zsh.enable = true;
 
+    programs.nh = {
+      enable = true;
+      flake = "/home/kayon/.nixos-config";
+      clean = {
+        enable = true;
+        extraArgs = "--keep 3 --keep-since 7d --nogcroots";
+      };
+    };
+
     environment.systemPackages = with pkgs; [
       wget
       git
@@ -51,8 +65,6 @@
       devenv
     ];
 
-
-    system.stateVersion = "24.11";
 
   };
 }

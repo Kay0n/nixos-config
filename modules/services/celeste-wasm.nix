@@ -8,7 +8,7 @@
     imports = [ inputs.celeste-wasm.nixosModules.default ];
 
     services.celeste-wasm = {
-      enable = true;
+      enable = false;
       # celeste.tar.gz lives here, must be accessable by all users
       archiveDir = "/var/lib/celeste-wasm"; 
     };
