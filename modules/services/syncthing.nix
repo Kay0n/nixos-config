@@ -36,12 +36,26 @@
             # any depth, (?d) lets syncthing delete them when removing a parent dir
             ignorePatterns = [
               "(?d).devenv"
+              "(?d).direnv"
               "(?d).venv"
+              "(?d)node_modules"
+              "(?d).gradle"
+              "(?d)__pycache__"
+              "(?d).*_cache" # pytest, mypy, ruff
+              "(?d).svelte-kit"
+              "(?d).godot"
+              "(?d)result"
+              "(?d)result-*"
+              "(?d).~lock.*#"
             ];
           };
           "congealed-magma" = {
             id = "obsidian-vault";
             path = "/home/kayon/congealed-magma";
+            ignorePatterns = [
+              ".obsidian/workspace.json"
+              ".obsidian/workspace-mobile.json"
+            ];
             devices = [ 
               "jdy-desktop" 
               "jdy-samsung" 

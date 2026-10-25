@@ -40,7 +40,7 @@
 
         ExecStart = ''
           ${pkgs.rclone}/bin/rclone sync \
-            /home/kayon/book-automation/cwa/library \
+            ${config.cwa.dir}/library \
             secret:book-backup \
             --config "${config.sops.templates."rclone-books.conf".path}" \
             --verbose

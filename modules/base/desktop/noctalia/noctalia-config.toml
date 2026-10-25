@@ -189,3 +189,7 @@ glyph = "ewew"
 
 [widget.volume]
 show_label = false
+
+[widget.volume.actions]
+right = "exec audio-output-cycle"
+middle = "volume-mute"

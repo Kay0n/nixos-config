@@ -1,8 +1,11 @@
-{ homeManager, ... }:
+{ nixos, homeManager, ... }:
 {
 
   flake.modules.nixos.noctalia = { pkgs, ... }: {
 
+    imports = with nixos; [
+      audio-switch
+    ];
 
     services.displayManager.noctalia-greeter = {
       enable = true;

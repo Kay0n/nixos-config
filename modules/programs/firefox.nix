@@ -113,6 +113,8 @@
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
             "browser.toolbars.bookmarks.visibility" = { Value = "always"; Status = "locked"; };
             "dom.fullscreen.keyboard_lock.enabled" = lock-true;
+            # niri throttles frame callbacks for off-screen windows, possible fix for audio pauses
+            "widget.wayland.vsync.enabled" = { Value = false; Status = "default"; };
           };
         };
       };
