@@ -15,7 +15,7 @@
 
     config.virtualisation.oci-containers.containers = {
       calibre-web-automated = {
-        image = "crocodilestick/calibre-web-automated:v4.0.6";
+        image = "crocodilestick/calibre-web-automated:v4.0.8";
         environment = {
           "PUID" = "1000";
           "PGID" = "1000";
