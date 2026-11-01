@@ -15,7 +15,7 @@
       syncthing
       firefox
       vscode
-      alacritty
+      ghostty
     ];
 
 

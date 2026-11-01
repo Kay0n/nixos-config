@@ -50,6 +50,9 @@
       vlc # media player
     ];
 
+    # terminal is set by terminal module
+    programs.nautilus-open-any-terminal.enable = true;
+
     services.udisks2.enable = true;
 
     fonts = {
@@ -71,6 +74,7 @@
   flake.modules.homeManager.niri = { pkgs, config, ... }: {
 
     xdg.configFile."niri/config.kdl".source = config.lib.dotfiles.link ./config.kdl;
+    xdg.configFile."niri/overrides.kdl".source = config.lib.dotfiles.link ./overrides.kdl;
 
     gtk = {
       enable = true;

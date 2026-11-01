@@ -21,7 +21,7 @@
       vscode
       flatpak
       steam
-      alacritty
+      ghostty
       omnibin
       handy
       

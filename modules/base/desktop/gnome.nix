@@ -30,7 +30,6 @@
       file-roller # archive manager
       nautilus # file manager  services.xserver.
       gnome-console # console
-      alacritty # alt console
       gnome-text-editor
       gnome-tweaks
       gnome-disk-utility
@@ -39,6 +38,9 @@
       gnomeExtensions.forge
       gnomeExtensions.pop-shell
     ];
+
+    # terminal is set by terminal module
+    programs.nautilus-open-any-terminal.enable = true;
 
   };
 

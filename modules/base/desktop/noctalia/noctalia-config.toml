@@ -152,7 +152,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "alacritty", "gtk3", "gtk4", "niri", "qt" ]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "niri", "qt" ]
     community_ids = [ "claude-code", "pi-agent", "pywalfox", "discord", "vscode", "heroiclauncher", "prismlauncher", "steam", "tmux" ]
 
 [wallpaper.default]
@@ -190,6 +190,6 @@ glyph = "ewew"
 [widget.volume]
 show_label = false
 
-[widget.volume.actions]
-right = "exec audio-output-cycle"
-middle = "volume-mute"
+    [widget.volume.actions]
+    middle = "volume-mute"
+    right = "exec audio-output-cycle"

@@ -70,7 +70,7 @@ binds {
     // lock, suspend if already locked
     F4 allow-when-locked=true { spawn-sh "noctalia msg status | grep -q '\"locked\": true' && noctalia msg session suspend || noctalia msg session lock"; }
 
-    Mod+T              { spawn "alacritty"; }
+    Mod+T              { spawn "ghostty"; }
     Mod+R              { spawn "firefox"; }
     Mod+E              { spawn "nautilus"; }
     Mod+V              { spawn "code"; }
@@ -170,7 +170,7 @@ layout {
     focus-ring {
         width 1.5
         active-color "#8d32ca"
-        inactive-color "#525252"
+        inactive-color "#00000000"
     }
 
     border {
@@ -207,6 +207,8 @@ animations {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    // don't fill the focus ring behind translucent windows
+    draw-border-with-background false
 }
 
 
@@ -214,10 +216,5 @@ window-rule {
 
 
 
-// include "./noctalia.kdl" // import theming from noctalia-shell 
-
-
-
-
-
-include "noctalia.kdl"
+include "noctalia.kdl" // import theming from noctalia-shell
+include "overrides.kdl" // tweaks on top of noctalia, must come after it
