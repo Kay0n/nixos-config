@@ -73,6 +73,23 @@
 	      "verbatim"
             ];
           };
+          "claude" = {
+            id = "claude";
+            path = "/home/kayon/.claude";
+            type = "sendreceive";
+            devices = [
+              "jdy-desktop"
+              "oracle-main"
+              "jdy-laptop"
+              "verbatim"
+            ];
+            ignorePatterns = [
+              ".credentials.json" # oauth refresh tokens rotate per machine
+              "(?d)ide"           # per machine IDE lock files
+              "(?d)shell-snapshots"
+              "(?d)statsig"
+            ];
+          };
 
         };
 
@@ -80,5 +97,9 @@
 
     };
 
+    networking.firewall = {
+      allowedTCPPorts = [ 22000 ];
+      allowedUDPPorts = [ 22000 ];
+    };
   };
 }
